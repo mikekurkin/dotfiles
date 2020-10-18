@@ -10,6 +10,7 @@
     ~/.aliases: aliases
     ~/.environment: environment
     ~/.zshrc: zshrc
+    ~/.p10k.zsh: p10k.zsh
     ~/.vim: 
         glob: true
         path: vim/*

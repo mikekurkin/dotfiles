@@ -5,39 +5,38 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+ZPLUG_INIT="$HOME/.zplug/init.zsh"
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# Install zplug if not found
+if [[ ! -f "$ZPLUG_INIT" ]]; then
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+fi
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# Wait until init file is present before going on
+t=0
+while [[ ! -f "$ZPLUG_INIT" ]] && [[ $t -le 10 ]]; do
+    sleep 0.1
+    t=$(( t + 0.1 ))
+done
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+source "$ZPLUG_INIT"
 
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# Plugins
+zplug "romkatv/powerlevel10k", as:theme, depth:1
+zplug "lib/clipboard", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/fasd", from:oh-my-zsh
+zplug "zdharma/fast-syntax-highlighting"
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+# Install plugins if there are plugins that have not been installed
+if ! zplug check; then
+    zplug install
+fi
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Which plugins would you like to load?
-plugins=(git zsh-syntax-highlighting fasd)
-
-source $ZSH/oh-my-zsh.sh
+# Then, source plugins and add commands to $PATH
+zplug load
 
 # User configuration
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # folder navigation
+alias ~='cd ~'
 alias -- -='cd -'
 alias ...=../..
 alias ....=../../..
