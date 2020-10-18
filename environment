@@ -1,16 +1,19 @@
+#!/usr/bin/env bash
 
 # Make vim the default editor.
-export EDITOR='/usr/local/bin/vim';
+export EDITOR='vim'
 
 # Make less the default pager.
-export PAGER='less';
+export PAGER='less'
 
 # Prefer US English and use UTF-8.
-export LANG='en_US.UTF-8';
-export LC_ALL='en_US.UTF-8';
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
-export PYTHONIOENCODING='UTF-8';
+export PYTHONIOENCODING='UTF-8'
 
 # Console colors
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
+
+export HOMEBREW_INSTALL_BADGE="☕"
