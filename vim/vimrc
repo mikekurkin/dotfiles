@@ -1,0 +1,479 @@
+set nocompatible
+" filetype off
+
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+call plug#begin(expand('~/.vim/plugged'))
+
+"*****************************************************************************
+"" Plug install packages
+"*****************************************************************************
+
+Plug 'scrooloose/nerdtree'
+" Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'scrooloose/nerdcommenter'
+" let g:NERDSpaceDelims = 1
+
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-repeat'
+
+Plug 'matze/vim-move'
+let g:move_key_modifier = 'C'
+
+" Easyclip
+Plug 'svermeulen/vim-cutlass'
+nnoremap m d
+xnoremap m d
+nnoremap mm dd
+nnoremap M D
+
+Plug 'svermeulen/vim-subversive'
+nmap s <plug>(SubversiveSubstitute)
+nmap ss <plug>(SubversiveSubstituteLine)
+nmap S <plug>(SubversiveSubstituteToEndOfLine)
+nmap <leader>s <plug>(SubversiveSubstituteRange)
+xmap <leader>s <plug>(SubversiveSubstituteRange)
+nmap <leader>ss <plug>(SubversiveSubstituteWordRange)
+
+Plug 'easymotion/vim-easymotion'
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+nmap <Leader>f <Plug>(easymotion-overwin-f2)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+let g:EasyMotion_smartcase = 1
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'thaerkh/vim-indentguides'
+let g:indentguides_conceal_color = "ctermfg=239 ctermbg=NONE"
+let g:indentguides_specialkey_color = "ctermfg=239 ctermbg=NONE"
+
+Plug 'bronson/vim-trailing-whitespace'
+set list
+set listchars=tab:->,nbsp:∘,trail:⊙
+set showbreak=↪
+hi NonText ctermfg=241
+hi ExtraWhitespace ctermbg=237 ctermfg=1
+
+Plug 'Raimondi/delimitMate'
+hi MatchParen ctermbg=242
+
+" Plug 'majutsushi/tagbar'
+
+Plug 'w0rp/ale'
+let g:ale_sign_column_always = 1
+
+" Plug 'Yggdroot/indentLine'
+" Plug 'sheerun/vim-polyglot'
+
+Plug 'godlygeek/tabular'
+
+Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_math = 1
+let g:vim_markdown_folding_disabled = 1
+let g:tex_conceal = ""
+
+Plug 'ferrine/md-img-paste.vim'
+autocmd FileType markdown nmap <silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+" autocmd FileType markdown imap <silent> <C-k> <leader>p
+" there are some defaults for image directory and image name, you can change them
+let g:mdip_imgdir = 'media'
+let g:mdip_imgname = 'img'
+
+Plug 'shime/vim-livedown'
+
+hi texStatement ctermfg=194
+hi texMathDelim ctermfg=194
+hi texMathOper ctermfg=194
+hi texMathMatcher ctermfg=229
+hi texMathZoneX ctermfg=229
+hi texMathZoneY ctermfg=229
+hi texSpecialChar ctermfg=217
+hi Delimiter ctermfg=159
+
+hi SpellBad ctermbg=NONE ctermfg=1 cterm=underline
+hi SpellCap ctermbg=NONE ctermfg=4 cterm=underline
+
+function! WritingMode()
+setlocal spell spelllang=ru,en_gb
+noremap  <buffer> <silent> <Up>   gk
+noremap  <buffer> <silent> <Down> gj
+noremap  <buffer> <silent> k      gk
+noremap  <buffer> <silent> j      gj
+inoremap <buffer> <silent> <Up>   <C-o>gk
+inoremap <buffer> <silent> <Down> <C-o>gj
+inoremap <C-l>    <c-g>u<Esc>[s1z=`]a<c-g>u
+endfunction
+
+" Call everytime we open a Markdown file
+autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown call WritingMode()
+
+
+Plug 'lyokha/vim-xkbswitch'
+
+"" Vim-Session
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+
+Plug 'djoshea/vim-autoread'
+Plug 'vim-scripts/vim-auto-save'
+
+"" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetDirectories=["ultisnips", $HOME.'/.vim/ultisnips']
+
+" Plug 'junegunn/goyo.vim'
+
+call plug#end()
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+        \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+        \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" Required:
+filetype plugin indent on
+
+"*****************************************************************************
+"" Basic Setup
+"*****************************************************************************"
+"" Encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+
+"" Fix backspace indent
+" set backspace=indent,eol,start
+
+"" Tabs. May be overridden by autocmd rules
+set tabstop=4
+set softtabstop=0
+set shiftwidth=4
+set expandtab
+
+"" Map leader to ,
+let mapleader='\'
+
+"" Enable hidden buffers
+" set hidden
+
+"" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+set fileformats=unix,dos,mac
+
+if exists('$SHELL')
+set shell=$SHELL
+else
+set shell=/bin/sh
+endif
+
+" session management
+let g:session_directory = "~/.vim/session"
+let g:session_autoload = "no"
+let g:session_autosave = "yes"
+let g:session_command_aliases = 1
+
+" auto read and write
+let g:auto_save = 1
+set autoread
+
+" Use persistent history.
+if !isdirectory("/tmp/.vimundodir")
+call mkdir("/tmp/.vimundodir", "", 0700)
+endif
+set undodir=/tmp/.vimundodir
+set undofile
+
+
+"*****************************************************************************
+"" Visual Settings
+"*****************************************************************************
+syntax on
+set ruler
+set number relativenumber
+set numberwidth=5
+hi LineNr ctermfg=240
+hi CursorLineNr ctermfg=250
+
+augroup numbertoggle
+autocmd!
+autocmd BufEnter,FocusGained,InsertLeave * set relativenumber | hi LineNr ctermfg=240
+autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber | hi LineNr ctermfg=250
+augroup END
+
+" let no_buffers_menu=
+set mouse=ar
+set mousemodel=extend
+set t_Co=256
+set guioptions=egmrti
+
+" IndentLine
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 1
+let g:indentLine_char = '┆'
+let g:indentLine_faster = 1
+
+"" Disable the blinking cursor.
+set gcr=a:blinkon0
+set scrolloff=3
+
+set linebreak
+
+"" Status bar
+set laststatus=2
+
+"" Use modeline overrides
+set modeline
+set modelines=10
+
+set title
+set titleold="Terminal"
+set titlestring=%F
+
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+if exists("*fugitive#statusline")
+set statusline+=%{fugitive#statusline()}
+endif
+
+" Abbreviations
+"*****************************************************************************
+"" no one is really happy until you have this shortcuts
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
+
+"" Tab switching
+nnoremap K gt
+nnoremap J gT
+
+"" NERDTree configuration
+let g:NERDTreeChDirMode=2
+let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+let g:NERDTreeShowBookmarks=1
+let g:nerdtree_tabs_focus_on_files=1
+let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+let g:NERDTreeWinSize = 50
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+nnoremap <silent> <F2> :NERDTreeFind<CR>
+nnoremap <silent> <F3> :NERDTreeToggle<CR>
+
+" " grep.vim
+" nnoremap <silent> <leader>f :Rgrep<CR>
+" let Grep_Default_Options = '-IR'
+" let Grep_Skip_Files = '*.log *.db'
+" let Grep_Skip_Dirs = '.git node_modules'
+
+
+"*****************************************************************************
+"" Autocmd Rules
+"*****************************************************************************
+"" The PC is fast enough, do syntax highlight syncing from start unless 200 lines
+" augroup vimrc-sync-fromstart
+" autocmd!
+" autocmd BufEnter * :syntax sync maxlines=200
+" augroup END
+
+"" Remember cursor position
+augroup vimrc-remember-cursor-position
+autocmd!
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
+
+"" txt
+" augroup vimrc-wrapping
+" autocmd!
+" autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
+" augroup END
+
+
+"" make/cmake
+augroup vimrc-make-cmake
+autocmd!
+autocmd FileType make setlocal noexpandtab
+autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
+augroup END
+
+"*****************************************************************************
+"" Mappings
+"*****************************************************************************
+"" Split
+noremap <Leader>h :<C-u>split<CR>
+noremap <Leader>v :<C-u>vsplit<CR>
+
+"" Git
+noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>gc :Gcommit<CR>
+noremap <Leader>gsh :Gpush<CR>
+noremap <Leader>gll :Gpull<CR>
+noremap <Leader>gs :Gstatus<CR>
+noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gd :Gvdiff<CR>
+noremap <Leader>gr :Gremove<CR>
+
+" session management
+nnoremap <leader>so :OpenSession<Space>
+nnoremap <leader>ss :SaveSession<Space>
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sc :CloseSession<CR>
+
+"" Set working directory
+nnoremap <leader>. :lcd %:p:h<CR>
+
+"" Opens an edit command with the path of the currently edited file filled in
+noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+"" Opens a tab edit command with the path of the currently edited file filled
+noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+" ale
+let g:ale_linters = {'markdown': ['markdownlint']}
+
+" Disable visualbell
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+autocmd GUIEnter * set visualbell t_vb=
+endif
+
+" "" Copy/Paste/Cut
+if has('unnamedplus')
+set clipboard=unnamed,unnamedplus
+endif
+
+" pbcopy for OSX copy/paste
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
+
+inoremap <C-U> <C-G>u<C-U>
+
+"" Clean search (highlight)
+nnoremap <silent> <leader><space> :noh<cr>
+
+"" Switching windows
+" noremap <C-j> <C-w>j
+" noremap <C-k> <C-w>k
+" noremap <C-l> <C-w>l
+" noremap <C-h> <C-w>h
+
+"" Vmap for maintain Visual Mode after shifting > and <
+vmap < <gv
+vmap > >gv
+
+"" Move visual block
+" vnoremap J :m '>+1<CR>gv=gv
+" vnoremap K :m '<-2<CR>gv=gv
+
+map <C-e> :NERDTreeToggle<CR>
+
+
+"*****************************************************************************
+"" Convenience variables
+"*****************************************************************************
+
+" vim-airline
+
+let g:airline_theme = 'bubblegum'
+" let g:airline_extensions = []
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline_skip_empty_sections = 1
+
+let g:airline_mode_map = {
+            \ '__' : '-',
+            \ 'c'  : 'C',
+            \ 'i'  : 'I',
+            \ 'ic' : 'I',
+            \ 'ix' : 'I',
+            \ 'n'  : 'N',
+            \ 'ni' : 'N',
+            \ 'no' : 'N',
+            \ 'R'  : 'R',
+            \ 'Rv' : 'R',
+            \ 's'  : 'S',
+            \ 'S'  : 'S',
+            \ '' : 'S',
+            \ 't'  : 'T',
+            \ 'v'  : 'V',
+            \ 'V'  : 'V',
+            \ '' : 'V',
+            \ }
+
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+
+let g:airline#extensions#virtualenv#enabled = 1
+let g:airline_detect_spelllang = 0
+let g:airline#extensions#wordcount#formatter#default#fmt = '%sW'
+let g:airline#extensions#whitespace#skip_indent_check_ft = {'markdown': ['trailing']}
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.notexists = 'Ɇ'
+let g:airline_symbols.whitespace = '☲'
+
+let g:XkbSwitchEnabled = 1
+let g:XkbSwitchIMappingsTr = {
+\ 'ru':
+\ {'<': 'qwertyuiopasdfghjklzxcvbnm'.
+\       'QWERTYUIOPASDFGHJKLZXCVBNM',
+\  '>': 'юбукенгзхшфывапролдячсмить'.
+\       'ЮБУКЕНГЗХШФЫВАПРОЛДЯЧСМИТЬ'}
+\}
+let g:XkbSwitchIMappings = ['ru']
+let g:XkbSwitchNLayout = 'en'
+" let g:XkbSwitchILayout = 'ru'
+
+" let g:XkbSwitchLib = '/usr/local/lib/libxkbswitch.dylib'
+let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
+let g:airline#extensions#xkblayout#enabled = 0
+
+" Run PlugInstall if there are missing plugins
+if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif

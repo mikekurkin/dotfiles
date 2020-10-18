@@ -1,0 +1,15 @@
+- defaults:
+    link:
+        create: true
+        relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.functions: functions
+    ~/.aliases: aliases
+    ~/.environment: environment
+    ~/.zshrc: zshrc
+    ~/.vim: 
+        glob: true
+        path: vim/*
