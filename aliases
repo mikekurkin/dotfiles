@@ -21,7 +21,7 @@ alias 9='cd -9'
 alias l='ls -lah'
 alias la='ls -lAh'
 alias ll='ls -lh'
-alias ls='ls -G'
+#alias ls='ls -G'
 alias lsa='ls -lah'
 alias md='mkdir -p'
 alias rd=rmdir
@@ -33,17 +33,17 @@ alias run-help=man
 alias which-command=whence
 
 # fasd
-alias a='fasd -a'
-alias d='fasd -d'
-alias f='fasd -f'
-alias j=zz
-alias op='a -e open'
-alias s='fasd -si'
-alias sd='fasd -sid'
-alias sf='fasd -sif'
-alias v='f -e "$EDITOR"'
-alias z='fasd_cd -d'
-alias zz='fasd_cd -d -i'
+# alias a='fasd -a'
+# alias d='fasd -d'
+# alias f='fasd -f'
+# alias j=zz
+# alias op='a -e open'
+# alias s='fasd -si'
+# alias sd='fasd -sid'
+# alias sf='fasd -sif'
+# alias v='f -e "$EDITOR"'
+# alias z='fasd_cd -d'
+# alias zz='fasd_cd -d -i'
 
 # http://www.zzapper.co.uk/zshtips.html
 #-------- Global Alias {{{

@@ -13,7 +13,7 @@ call plug#begin(expand('~/.vim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 " Plug 'jistr/vim-nerdtree-tabs'
 " Plug 'scrooloose/nerdcommenter'
 " let g:NERDSpaceDelims = 1
@@ -21,7 +21,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-unimpaired'
+" Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
@@ -44,17 +44,38 @@ nmap <leader>s <plug>(SubversiveSubstituteRange)
 xmap <leader>s <plug>(SubversiveSubstituteRange)
 nmap <leader>ss <plug>(SubversiveSubstituteWordRange)
 
-Plug 'easymotion/vim-easymotion'
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-nmap <Leader>f <Plug>(easymotion-overwin-f2)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-let g:EasyMotion_smartcase = 1
+" Plug 'easymotion/vim-easymotion'
+" let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" nmap <Leader>f <Plug>(easymotion-overwin-f2)
+" map <Leader>j <Plug>(easymotion-j)
+" map <Leader>k <Plug>(easymotion-k)
+" let g:EasyMotion_smartcase = 1
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Crazy slow on iSH
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" Plug 'itchyny/lightline.vim'
+
+Plug 'pacha/vem-statusline'
+set laststatus=2
+set noshowmode
+let g:vem_statusline_parts='mbfienpP'
+let g:vem_statusline_filename_format='p'
+let g:vem_statusline_branch_function='fugitive#head'
+
+hi StatusLine                cterm=none ctermfg=255 ctermbg=237 guifg=#e6e3d8 guibg=#373737 gui=none
+hi StatusLineNC              cterm=none ctermfg=243 ctermbg=238 guifg=#857b6f guibg=#404040 gui=none
+hi VemStatusLineMode         cterm=bold ctermfg=192 ctermbg=237 guifg=#cae682 guibg=#373737 gui=bold
+hi VemStatusLineModeInsert   cterm=bold ctermfg=117 ctermbg=237 guifg=#8ac6f2 guibg=#373737 gui=bold
+hi VemStatusLineBranch       cterm=none ctermfg=246 ctermbg=237 guifg=#999999 guibg=#373737 gui=none
+hi VemStatusLineFileModified cterm=bold ctermfg=192 ctermbg=237 guifg=#cae682 guibg=#373737 gui=bold
+hi VemStatusLineFileRO       cterm=bold ctermfg=192 ctermbg=237 guifg=#e5786d guibg=#373737 gui=bold
+hi VemStatusLineSeparator    cterm=none ctermfg=246 ctermbg=237 guifg=#999999 guibg=#373737 gui=none
+hi VemStatusLinePosition     cterm=bold ctermfg=255 ctermbg=237 guifg=#f6f3e8 guibg=#373737 gui=bold
+
 
 Plug 'airblade/vim-gitgutter'
+highlight! link SignColumn LineNr
 
 Plug 'thaerkh/vim-indentguides'
 let g:indentguides_conceal_color = "ctermfg=239 ctermbg=NONE"
@@ -72,27 +93,28 @@ hi MatchParen ctermbg=242
 
 " Plug 'majutsushi/tagbar'
 
-Plug 'w0rp/ale'
-let g:ale_sign_column_always = 1
+" Asyncronous Lint Engine
+" Plug 'w0rp/ale'
+" let g:ale_sign_column_always = 1
 
 " Plug 'Yggdroot/indentLine'
 " Plug 'sheerun/vim-polyglot'
 
-Plug 'godlygeek/tabular'
+" Plug 'godlygeek/tabular'
 
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_math = 1
 let g:vim_markdown_folding_disabled = 1
 let g:tex_conceal = ""
 
-Plug 'ferrine/md-img-paste.vim'
-autocmd FileType markdown nmap <silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
-" autocmd FileType markdown imap <silent> <C-k> <leader>p
-" there are some defaults for image directory and image name, you can change them
-let g:mdip_imgdir = 'media'
-let g:mdip_imgname = 'img'
+" Plug 'ferrine/md-img-paste.vim'
+" autocmd FileType markdown nmap <silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+" " autocmd FileType markdown imap <silent> <C-k> <leader>p
+" " there are some defaults for image directory and image name, you can change them
+" let g:mdip_imgdir = 'media'
+" let g:mdip_imgname = 'img'
 
-Plug 'shime/vim-livedown'
+" Plug 'shime/vim-livedown'
 
 hi texStatement ctermfg=194
 hi texMathDelim ctermfg=194
@@ -121,7 +143,7 @@ endfunction
 autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown call WritingMode()
 
 
-Plug 'lyokha/vim-xkbswitch'
+" Plug 'lyokha/vim-xkbswitch'
 
 "" Vim-Session
 Plug 'xolox/vim-misc'
@@ -250,16 +272,16 @@ set title
 set titleold="Terminal"
 set titlestring=%F
 
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+" set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-if exists("*fugitive#statusline")
-set statusline+=%{fugitive#statusline()}
-endif
+" if exists("*fugitive#statusline")
+" set statusline+=%{fugitive#statusline()}
+" endif
 
 " Abbreviations
 "*****************************************************************************
@@ -280,16 +302,16 @@ nnoremap K gt
 nnoremap J gT
 
 "" NERDTree configuration
-let g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-let g:NERDTreeShowBookmarks=1
-let g:nerdtree_tabs_focus_on_files=1
-let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-let g:NERDTreeWinSize = 50
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
+" let g:NERDTreeChDirMode=2
+" let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+" let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+" let g:NERDTreeShowBookmarks=1
+" let g:nerdtree_tabs_focus_on_files=1
+" let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+" let g:NERDTreeWinSize = 50
+" set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+" nnoremap <silent> <F2> :NERDTreeFind<CR>
+" nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
 " " grep.vim
 " nnoremap <silent> <leader>f :Rgrep<CR>
@@ -360,7 +382,7 @@ noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " ale
-let g:ale_linters = {'markdown': ['markdownlint']}
+" let g:ale_linters = {'markdown': ['markdownlint']}
 
 " Disable visualbell
 set noerrorbells visualbell t_vb=
@@ -396,7 +418,7 @@ vmap > >gv
 " vnoremap J :m '>+1<CR>gv=gv
 " vnoremap K :m '<-2<CR>gv=gv
 
-map <C-e> :NERDTreeToggle<CR>
+" map <C-e> :NERDTreeToggle<CR>
 
 
 "*****************************************************************************
@@ -405,75 +427,77 @@ map <C-e> :NERDTreeToggle<CR>
 
 " vim-airline
 
-let g:airline_theme = 'bubblegum'
+" let g:airline_theme = 'bubblegum'
+" let g:airline_theme = 'dark_minimal'
 " let g:airline_extensions = []
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline_skip_empty_sections = 1
+" let g:airline#extensions#branch#enabled = 1
+" let g:airline#extensions#ale#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#show_buffers = 0
+" let g:airline#extensions#tagbar#enabled = 1
+" let g:airline_skip_empty_sections = 1
 
-let g:airline_mode_map = {
-            \ '__' : '-',
-            \ 'c'  : 'C',
-            \ 'i'  : 'I',
-            \ 'ic' : 'I',
-            \ 'ix' : 'I',
-            \ 'n'  : 'N',
-            \ 'ni' : 'N',
-            \ 'no' : 'N',
-            \ 'R'  : 'R',
-            \ 'Rv' : 'R',
-            \ 's'  : 'S',
-            \ 'S'  : 'S',
-            \ '' : 'S',
-            \ 't'  : 'T',
-            \ 'v'  : 'V',
-            \ 'V'  : 'V',
-            \ '' : 'V',
-            \ }
+" let g:airline_mode_map = {
+"             \ '__' : '-',
+"             \ 'c'  : 'C',
+"             \ 'i'  : 'I',
+"             \ 'ic' : 'I',
+"             \ 'ix' : 'I',
+"             \ 'n'  : 'N',
+"             \ 'ni' : 'N',
+"             \ 'no' : 'N',
+"             \ 'R'  : 'R',
+"             \ 'Rv' : 'R',
+"             \ 's'  : 'S',
+"             \ 'S'  : 'S',
+"             \ '' : 'S',
+"             \ 't'  : 'T',
+"             \ 'v'  : 'V',
+"             \ 'V'  : 'V',
+"             \ '' : 'V',
+"             \ }
 
-if !exists('g:airline_symbols')
-let g:airline_symbols = {}
-endif
+" if !exists('g:airline_symbols')
+" let g:airline_symbols = {}
+" endif
 
-let g:airline#extensions#virtualenv#enabled = 1
-let g:airline_detect_spelllang = 0
-let g:airline#extensions#wordcount#formatter#default#fmt = '%sW'
-let g:airline#extensions#whitespace#skip_indent_check_ft = {'markdown': ['trailing']}
+" let g:airline#extensions#virtualenv#enabled = 1
+" let g:airline_detect_spelllang = 0
+" let g:airline#extensions#wordcount#formatter#default#fmt = '%sW'
+" let g:airline#extensions#whitespace#skip_indent_check_ft = {'markdown': ['trailing']}
+" let g:airline_highlighting_cache = 1
+" let ttimeoutlen = 10
 
 " powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.notexists = 'Ɇ'
-let g:airline_symbols.whitespace = '☲'
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
+" let g:airline_symbols.branch = ''
+" let g:airline_symbols.readonly = ''
+" let g:airline_symbols.linenr = '☰'
+" let g:airline_symbols.maxlinenr = ''
+" let g:airline_symbols.spell = 'Ꞩ'
+" let g:airline_symbols.paste = 'Þ'
+" let g:airline_symbols.notexists = 'Ɇ'
+" let g:airline_symbols.whitespace = '☲'
 
-let g:XkbSwitchEnabled = 1
-let g:XkbSwitchIMappingsTr = {
-\ 'ru':
-\ {'<': 'qwertyuiopasdfghjklzxcvbnm'.
-\       'QWERTYUIOPASDFGHJKLZXCVBNM',
-\  '>': 'юбукенгзхшфывапролдячсмить'.
-\       'ЮБУКЕНГЗХШФЫВАПРОЛДЯЧСМИТЬ'}
-\}
-let g:XkbSwitchIMappings = ['ru']
-let g:XkbSwitchNLayout = 'en'
-" let g:XkbSwitchILayout = 'ru'
 
-" let g:XkbSwitchLib = '/usr/local/lib/libxkbswitch.dylib'
-let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
-let g:airline#extensions#xkblayout#enabled = 0
+" \'ru':
+" \ {'<': 'qwertyuiopasdfghjklzxcvbnm'.
+" \       'QWERTYUIOPASDFGHJKLZXCVBNM',
+" \  '>': 'юбукенгзхшфывапролдячсмить'.
+" \       'ЮБУКЕНГЗХШФЫВАПРОЛДЯЧСМИТЬ'}
+" \}
+" let g:XkbSwitchIMappings = ['ru']
+" let g:XkbSwitchNLayout = 'en'
+" " let g:XkbSwitchILayout = 'ru'
+
+" " let g:XkbSwitchLib = '/usr/local/lib/libxkbswitch.dylib'
+" let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
+" let g:airline#extensions#xkblayout#enabled = 0
 
 " Run PlugInstall if there are missing plugins
 if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
