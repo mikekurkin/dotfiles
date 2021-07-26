@@ -1,0 +1,89 @@
+{
+  "title": "Change Left Control",
+  "rules": [
+    {
+      "description": "Change left_control to f19 unless in Parallels, to f18 if in Parallels",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "parameters": {
+              "basic.to_if_alone_timeout_milliseconds": 500
+          },
+          "to": [
+            {
+              "key_code": "f19",
+              "repeat": false
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "f19",
+              "repeat": false
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "key_code": "f19",
+              "repeat": false
+            }
+          ],
+          "conditions": [
+            {
+                "type": "frontmost_application_unless",
+                "bundle_identifiers": [
+                    "^com\\.parallels\\.desktop\\.console$",
+                    "^com\\.parallels\\.winapp\\..*$"
+                ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f18",
+              "repeat": false
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "f18",
+              "repeat": false
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "key_code": "f18",
+              "repeat": false
+            }
+          ],
+          "conditions": [
+            {
+                "type": "frontmost_application_if",
+                "bundle_identifiers": [
+                    "^com\\.parallels\\.desktop\\.console$",
+                    "^com\\.parallels\\.winapp\\..*$"
+                ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

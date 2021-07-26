@@ -5,6 +5,17 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Profiling Start
+# zmodload zsh/datetime
+# setopt PROMPT_SUBST
+# PS4='+$EPOCHREALTIME %N:%i> '
+
+# logfile=$(mktemp zsh_profile.XXXXXXXX)
+# echo "Logging to $logfile"
+# exec 3>&2 2>$logfile
+
+# setopt XTRACE
+
 ZPLUG_INIT="$HOME/.zplug/init.zsh"
 
 # Install zplug if not found
@@ -28,7 +39,10 @@ zplug "romkatv/powerlevel10k", as:theme, depth:1
 zplug "lib/clipboard", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/fasd", from:oh-my-zsh
-zplug "zdharma/fast-syntax-highlighting"
+# zplug "zdharma/history-search-multi-word"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zdharma/fast-syntax-highlighting", defer:1
+
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check; then
@@ -38,19 +52,32 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load
 
+# unsetopt XTRACE
+# exec 2>&3 3>&-
 # User configuration
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source ~/.functions
-source ~/.aliases
-source ~/.environment
-
-source ~/.config/broot/launcher/bash/br
+# Case-insensitive, partial-word completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # Key bindings for prompt navigation
 bindkey "[D" backward-word
 bindkey "[C" forward-word
 bindkey "^[a" beginning-of-line
 bindkey "^[e" end-of-line
+
+# Key bindings for substring search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+source ~/.functions
+source ~/.aliases
+source ~/.environment
+
+source ~/.homebrew
+
+source ~/.config/broot/launcher/bash/br
+
+

@@ -1,0 +1,35 @@
+{
+  "title": "Disable Right CMD in Microsoft RDP",
+  "rules": [
+    {
+      "description": "Disable Right CMD in Microsoft RDP",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_none",
+              "lazy": true
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                  "^com\\.microsoft\\.rdc\\.macos$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

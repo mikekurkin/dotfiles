@@ -16,4 +16,5 @@ export PYTHONIOENCODING='UTF-8'
 # Console colors
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
-export HOMEBREW_INSTALL_BADGE="☕"
+# Secrets
+source ~/.secret

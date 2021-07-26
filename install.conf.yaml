@@ -14,3 +14,12 @@
     ~/.vim: 
         glob: true
         path: vim/*
+    ~/.config/karabiner:
+        glob: true
+        path: apps/karabiner/*
+    ~/Library/Application Support/Alfred: 
+        glob: true
+        path: apps/alfred/*
+    ~/Library/Preferences:
+        glob: true
+        path: apps/plists/*
