@@ -38,6 +38,7 @@ zplug "zplug/zplug", hook-build:"zplug --self-manage"
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 zplug "lib/clipboard", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
+zplug "lib/history", from:oh-my-zsh
 zplug "plugins/fasd", from:oh-my-zsh
 # zplug "zdharma/history-search-multi-word"
 zplug "zsh-users/zsh-history-substring-search"
@@ -56,6 +57,12 @@ zplug load
 # exec 2>&3 3>&-
 # User configuration
 
+#To save every command before it is executed (this is different from bash's history -a solution):
+setopt inc_append_history
+
+#To retrieve the history file everytime history is called upon.
+setopt share_history
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -72,12 +79,21 @@ bindkey "^[e" end-of-line
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-source ~/.functions
-source ~/.aliases
-source ~/.environment
+# source ~/.functions
+# source ~/.aliases
+# source ~/.environment
 
-source ~/.homebrew
+# source ~/.homebrew
 
-source ~/.config/broot/launcher/bash/br
+# source ~/.config/broot/launcher/bash/br
+
+for script in ~/.functions \
+	~/.aliases \
+	~/.environment \
+	~/.homebrew \
+	~/.config/broot/launcher/bash/br; do
+	[[ ! -f ${script} ]] || source ${script}
+done
+
 
 

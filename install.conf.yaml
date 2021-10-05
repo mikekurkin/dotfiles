@@ -11,6 +11,7 @@
     ~/.environment: environment
     ~/.zshrc: zshrc
     ~/.p10k.zsh: p10k.zsh
+    ~/Brewfile: brewfile
     ~/.vim: 
         glob: true
         path: vim/*

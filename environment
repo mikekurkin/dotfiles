@@ -17,4 +17,4 @@ export PYTHONIOENCODING='UTF-8'
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 # Secrets
-source ~/.secret
+[[ ! -f ~/.secret ]] || source ~/.secret
