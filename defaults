@@ -737,6 +737,15 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 
 # [ ] turn off system sounds
 # [ ] set mouse tracking speed
+# [ ] turn off active corners
+# [ ] set finder favourites
+# [ ] turn off screensaver
+# [ ] set power options
+# [ ] set pinned apps in dock
+# [ ] safari settings: search engine, open closed tabs, turn on developer settings, show link address on hover
+# [ ] turn on screen zoom and disable pixel smoothing
+# [ ] add screenshots folder to the dock
+
 
 ###############################################################################
 # Kill affected applications                                                  #
