@@ -2,73 +2,114 @@
   "title": "Change Caps Lock",
   "rules": [
     {
-      "description": "Change caps_lock to f19 unless in Parallels, to f18 if in Parallels",
+      "description": "send caps_lock on key down set caps_held_down",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "parameters": {
+              "basic.to_if_held_down_threshold_milliseconds": 0
+          },
+          "to_if_held_down": [
+						{
+	            "set_variable": {
+	              "name": "caps_held_down",
+	              "value": 1
+	            }
+						},
+						{
+	            "set_variable": {
+                "name": "caps_modifier_mode",
+                "value": 0
+							}
+						},
+            {
+              "key_code": "caps_lock",
+              "repeat": false
+						}
+          ],
+          "to_after_key_up": [
+						{
+							"set_variable": {
+								"name": "caps_held_down",
+								"value": 0
+							}
+						}, 
+						{
+							"key_code": "f19"
+						}
+          ]
+        }
+      ]
+    },
+    {
+      "description": "if caps_held_down and another key was pressed, set caps_modifier_mode",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "any": "key_code",
+            "modifiers": {
               "optional": [
                 "any"
               ]
             }
           },
-          "parameters": {
-              "basic.to_if_alone_timeout_milliseconds": 500
-          },
+          "to": [
+						{
+	            "set_variable": {
+                "name": "caps_modifier_mode",
+                "value": 1
+							}
+						}
+          ],
+          "conditions": [
+					  {
+				      "type": "variable_if",
+				      "name": "caps_held_down",
+				      "value": 1
+					  }
+          ]
+        }
+			]
+		},
+    {
+      "description": "if caps_modifier_mode, send caps_lock after key_up",
+      "manipulators": [
+        {
+          "type": "basic",
+          /*"from": {
+            "key_code": "f19",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },*/
           "to": [
             {
-              "key_code": "f19",
-             "repeat": false
-            }
-          ],
-          // "to_if_alone": [
-          //   {
-          //     "key_code": "f19",
-          //     "repeat": false
-          //   }
-          // ],
-          // "to_after_key_up": [
-          //   {
-          //     "key_code": "f19",
-          //     "repeat": false
-          //   }
-          // ],
-          "conditions": [
-            {
-                "type": "frontmost_application_unless",
-                "bundle_identifiers": [
-                    "^com\\.parallels\\.desktop\\.console$",
-                    "^com\\.parallels\\.winapp\\..*$"
-                ]
-            }
-          ]
-        },
-        {
-            "type": "basic",
-            "from": {
-                "key_code": "caps_lock",
-                "modifiers": {
-                    "optional": [
-                        "any"
-                    ]
-                }
+              "key_code": "caps_lock",
+              "repeat": false
             },
-            "to": [
-                {
-                    "key_code": "f18"
-                }
-            ],
-            "conditions": [
-                {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                        "^com\\.parallels\\.desktop\\.console$",
-                        "^com\\.parallels\\.winapp\\..*$"
-                    ]
-                }
-            ]
+						{
+	            "set_variable": {
+                "name": "caps_modifier_mode",
+                "value": 0
+							}
+						}
+          ],
+          "conditions": [
+					  {
+				      "type": "variable_if",
+				      "name": "caps_modifier_mode",
+				      "value": 1
+					  }
+          ]
         }
       ]
     }
