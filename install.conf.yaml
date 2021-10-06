@@ -9,8 +9,18 @@
     ~/.functions: functions
     ~/.aliases: aliases
     ~/.environment: environment
+    ~/.gitignore_global: gitignore_linux
     ~/.zshrc: zshrc
     ~/.p10k.zsh: p10k.zsh
+
+- defaults:
+    link:
+      if: '[ $(uname) = Darwin ]'
+      relink: true
+      force: true
+
+- link:
+    ~/.gitignore_global: gitignore_macos
     ~/Brewfile: brewfile
     ~/.vim: 
         glob: true
@@ -24,3 +34,8 @@
     ~/Library/Preferences:
         glob: true
         path: apps/plists/*
+
+- shell: 
+  -
+    command: git config --global core.excludesfile ~/.gitignore_global
+    description: Configure global ignored files
