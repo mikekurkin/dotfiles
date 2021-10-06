@@ -15,7 +15,9 @@ brew "pv"
 brew "tldr"
 brew "yarn"
 brew "youtube-dl"
+brew "vim"
 
+cask "anydesk"
 cask "backblaze"
 cask "coconutbattery"
 cask "dozer"
@@ -24,6 +26,7 @@ cask "fork"
 cask "google-chrome"
 cask "handbrake"
 cask "iina"
+cask "ilya-birman-typography-layout"
 cask "ios-app-signer"
 cask "iterm2"
 cask "karabiner-elements"
@@ -41,7 +44,6 @@ cask "transmission"
 cask "transmission-remote-gui"
 cask "tunnelbear"
 cask "typora"
-cask "ukelele"
 cask "visual-studio-code"
 
 cask "font-iosevka"
@@ -49,7 +51,6 @@ cask "font-iosevka-slab"
 cask "font-iosevka-ss07"
 cask "font-iosevka-aile"
 cask "font-iosevka-etoile"
-cask "font-iosevka-sparkle"
 
 mas "AdGuard for Safari", id: 1440147259
 mas "Amphetamine", id: 937984704
@@ -63,6 +64,5 @@ mas "Microsoft Remote Desktop", id: 1295203466
 mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pixelmator Pro", id: 1289583905
-mas "Reeder 3", id: 880001334
 mas "Tampermonkey", id: 1482490089
-mas "Xcode", id: 497799835
+# mas "Xcode", id: 497799835
