@@ -1,7 +1,7 @@
 - defaults:
     link:
-        create: true
-        relink: true
+      create: true
+      relink: true
 
 - clean: ['~']
 
@@ -13,29 +13,32 @@
     ~/.zshrc: zshrc
     ~/.p10k.zsh: p10k.zsh
 
+- shell:
+    - command: git config --global core.excludesfile ~/.gitignore_global
+      description: Configure global ignored files
+    - command: git config --global user.name "Mike Kurkin"
+      description: Introduce myself
+    - command: git config --global user.email "mike@kurkin.net"
+      description: Set up github user email
+
 - defaults:
     link:
       if: '[ $(uname) = Darwin ]'
       relink: true
-      force: true
 
 - link:
     ~/.gitignore_global: gitignore_macos
     ~/Brewfile: brewfile
-    ~/.vim: 
-        glob: true
-        path: vim/*
+    ~/.homebrew: homebrew
+    ~/.vim:
+      glob: true
+      path: vim/*
     ~/.config/karabiner:
-        glob: true
-        path: apps/karabiner/*
-    ~/Library/Application Support/Alfred: 
-        glob: true
-        path: apps/alfred/*
+      glob: true
+      path: apps/karabiner/*
+    ~/Library/Application Support/Alfred:
+      glob: true
+      path: apps/alfred/*
     ~/Library/Preferences:
-        glob: true
-        path: apps/plists/*
-
-- shell: 
-  -
-    command: git config --global core.excludesfile ~/.gitignore_global
-    description: Configure global ignored files
+      glob: true
+      path: apps/plists/*

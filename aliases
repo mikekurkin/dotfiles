@@ -3,6 +3,7 @@
 # folder navigation
 alias ~='cd ~'
 alias -- -='cd -'
+alias ..='cd ..'
 alias ...=../..
 alias ....=../../..
 alias .....=../../../..
@@ -21,7 +22,7 @@ alias 9='cd -9'
 alias l='ls -lah'
 alias la='ls -lAh'
 alias ll='ls -lh'
-alias ls='ls -G'
+alias ls='ls --color=always'
 alias lsa='ls -lah'
 alias md='mkdir -p'
 alias rd=rmdir
@@ -31,6 +32,9 @@ alias afind='ack -il'
 alias history=omz_history
 alias run-help=man
 alias which-command=whence
+
+alias doco='docker-compose'
+alias doterm='docker exec -it -e "TERM=xterm-256color"'
 
 # fasd
 alias a='fasd -a'

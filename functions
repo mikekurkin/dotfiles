@@ -41,3 +41,19 @@ function tre() {
 
 # Creates `.gitignore` file for a specified API.
 function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
+
+vpnstart() {
+    echo $WORKPWD | sudo openconnect \
+        --config="$HOME/.config/openconnect.conf" \
+        --pid-file="$HOME/.openconnect.pid" \
+        $VPNADDRESS
+}
+
+vpnstop() {
+    if [[ -f "$HOME/.openconnect.pid" ]]; then
+        sudo kill -2 $(cat "$HOME/.openconnect.pid") && rm -f "$HOME/.openconnect.pid"
+    else
+        echo "openconnect pid file does not exist, probably not running"
+    fi
+}
+

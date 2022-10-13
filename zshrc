@@ -39,9 +39,11 @@ zplug "romkatv/powerlevel10k", as:theme, depth:1
 zplug "lib/clipboard", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
+# zplug "plugins/virtualenvwrapper", from:oh-my-zsh
 zplug "plugins/fasd", from:oh-my-zsh
 # zplug "zdharma/history-search-multi-word"
 zplug "zsh-users/zsh-history-substring-search"
+zplug "petervanderdoes/git-flow-completion"
 zplug "zdharma/fast-syntax-highlighting", defer:1
 
 
@@ -79,21 +81,13 @@ bindkey "^[e" end-of-line
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-# source ~/.functions
-# source ~/.aliases
-# source ~/.environment
-
-# source ~/.homebrew
-
-# source ~/.config/broot/launcher/bash/br
-
 for script in ~/.functions \
 	~/.aliases \
 	~/.environment \
-	~/.homebrew \
 	~/.config/broot/launcher/bash/br; do
 	[[ ! -f ${script} ]] || source ${script}
 done
 
-
-
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

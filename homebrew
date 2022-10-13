@@ -1,0 +1,7 @@
+export HOMEBREW_CASK_OPTS='--no-quarantine'
+export HOMEBREW_INSTALL_BADGE=☕️
+
+export PATH="/opt/homebrew/opt/ruby/bin:$HOME/.poetry/bin:$PATH"
+for script in $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh; do
+	[[ ! -f ${script} ]] || source ${script}
+done

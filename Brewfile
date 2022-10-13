@@ -7,7 +7,9 @@ tap "homebrew/autoupdate"
 tap "mas-cli/tap"
 tap "mikekurkin/homebrew-utils"
 
+brew "chruby"
 brew "ffmpeg"
+brew "git-flow-avh"
 brew "gpac"
 brew "issw"
 brew "mas-cli/tap/mas"
@@ -17,8 +19,10 @@ brew "yarn"
 brew "youtube-dl"
 brew "vim"
 
+cask "altserver"
 cask "anydesk"
 cask "backblaze"
+cask "boop"
 cask "coconutbattery"
 cask "dozer"
 cask "firefox"
@@ -31,6 +35,7 @@ cask "ios-app-signer"
 cask "iterm2"
 cask "karabiner-elements"
 cask "keka"
+cask "maccy"
 cask "mediainfo"
 cask "microsoft-edge"
 cask "monitorcontrol"
@@ -65,4 +70,4 @@ mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pixelmator Pro", id: 1289583905
 mas "Tampermonkey", id: 1482490089
-# mas "Xcode", id: 497799835
+# mas "Xcode", id: 497799835 # Takes too long, better to install it separately
