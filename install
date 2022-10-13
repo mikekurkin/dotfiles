@@ -2,6 +2,18 @@
 
 set -e
 
+OS_RELEASE="/etc/os-release"
+DOCKERENV="/.dockerenv"
+
+[[ ! -f ${OS_RELEASE} ]] || eval "DISTRO_$(cat ${OS_RELEASE} | grep '^ID=')"
+
+if [[ -f ${DOCKERENV} ]]; then
+  if [[ ${DISTRO_ID} -eq "alpine" ]]; then
+    apk update
+    apk add shadow python3 perl openssh ncurses zsh 
+  fi
+fi
+
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
 
