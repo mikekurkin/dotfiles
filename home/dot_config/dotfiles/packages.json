@@ -1,0 +1,487 @@
+{
+  "formulae": [
+    "ack",
+    "chezmoi",
+    "docker-compose",
+    "ffmpeg",
+    "fzf",
+    "git-delta",
+    "git-flow-avh",
+    "git-lfs",
+    "gpac",
+    "mas",
+    "mise",
+    "most",
+    "openconnect",
+    "pv",
+    "python@3.14",
+    "tlrc",
+    "tmux",
+    "tree",
+    "uv",
+    "vim",
+    "yt-dlp"
+  ],
+  "casks": [
+    {
+      "token": "aerospace",
+      "apps": [
+        "/Applications/AeroSpace.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": false
+    },
+    {
+      "token": "altserver",
+      "apps": [
+        "/Applications/AltServer.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "anydesk",
+      "apps": [
+        "/Applications/AnyDesk.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": null
+    },
+    {
+      "token": "betterdisplay",
+      "apps": [
+        "/Applications/BetterDisplay.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "boop",
+      "apps": [
+        "/Applications/Boop.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": null
+    },
+    {
+      "token": "claude-code",
+      "apps": [],
+      "unattended": true,
+      "reason": "Binary-only CLI cask; upgrade only when its installed executable is present.",
+      "auto_updates": null,
+      "binaries": [
+        "/opt/homebrew/bin/claude"
+      ]
+    },
+    {
+      "token": "coconutbattery",
+      "apps": [
+        "/Applications/coconutBattery.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "codex",
+      "apps": [],
+      "unattended": true,
+      "reason": "Binary-only CLI cask; upgrade only when its installed executable is present.",
+      "auto_updates": null,
+      "binaries": [
+        "/opt/homebrew/bin/codex"
+      ]
+    },
+    {
+      "token": "coteditor",
+      "apps": [
+        "/Applications/CotEditor.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "daisydisk",
+      "apps": [
+        "/Applications/DaisyDisk.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "dash",
+      "apps": [
+        "/Applications/Dash.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "firefox",
+      "apps": [
+        "/Applications/Firefox.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "font-iosevka",
+      "apps": [],
+      "unattended": false,
+      "reason": "Interactive/privileged installer or no app bundle to validate",
+      "auto_updates": null
+    },
+    {
+      "token": "font-iosevka-aile",
+      "apps": [],
+      "unattended": false,
+      "reason": "Interactive/privileged installer or no app bundle to validate",
+      "auto_updates": null
+    },
+    {
+      "token": "font-iosevka-etoile",
+      "apps": [],
+      "unattended": false,
+      "reason": "Interactive/privileged installer or no app bundle to validate",
+      "auto_updates": null
+    },
+    {
+      "token": "font-iosevka-nerd-font",
+      "apps": [],
+      "unattended": false,
+      "reason": "Interactive/privileged installer or no app bundle to validate",
+      "auto_updates": null
+    },
+    {
+      "token": "font-iosevka-slab",
+      "apps": [],
+      "unattended": false,
+      "reason": "Interactive/privileged installer or no app bundle to validate",
+      "auto_updates": null
+    },
+    {
+      "token": "font-iosevka-ss07",
+      "apps": [],
+      "unattended": false,
+      "reason": "Interactive/privileged installer or no app bundle to validate",
+      "auto_updates": null
+    },
+    {
+      "token": "font-iosevka-term-nerd-font",
+      "apps": [],
+      "unattended": false,
+      "reason": "Interactive/privileged installer or no app bundle to validate",
+      "auto_updates": null
+    },
+    {
+      "token": "fork",
+      "apps": [
+        "/Applications/Fork.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "gemini",
+      "apps": [
+        "/Applications/Gemini 2.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "handbrake-app",
+      "apps": [
+        "/Applications/HandBrake.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "happ",
+      "apps": [
+        "/Applications/Happ.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": null
+    },
+    {
+      "token": "iina",
+      "apps": [
+        "/Applications/IINA.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "ilya-birman-typography-layout",
+      "apps": [],
+      "unattended": false,
+      "reason": "Interactive/privileged installer or no app bundle to validate",
+      "auto_updates": null
+    },
+    {
+      "token": "insta360-studio",
+      "apps": [],
+      "unattended": false,
+      "reason": "Interactive/privileged installer or no app bundle to validate",
+      "auto_updates": null
+    },
+    {
+      "token": "ios-app-signer",
+      "apps": [
+        "/Applications/iOS App Signer.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": null
+    },
+    {
+      "token": "iterm2",
+      "apps": [
+        "/Applications/iTerm.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "karabiner-elements",
+      "apps": [],
+      "unattended": false,
+      "reason": "Interactive/privileged installer or no app bundle to validate",
+      "auto_updates": true
+    },
+    {
+      "token": "keka",
+      "apps": [
+        "/Applications/Keka.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "latest",
+      "apps": [
+        "/Applications/Latest.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "localsend",
+      "apps": [
+        "/Applications/LocalSend.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": null
+    },
+    {
+      "token": "logi-options+",
+      "apps": [],
+      "unattended": false,
+      "reason": "Interactive/privileged installer or no app bundle to validate",
+      "auto_updates": true
+    },
+    {
+      "token": "maccy",
+      "apps": [
+        "/Applications/Maccy.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "mediainfo",
+      "apps": [
+        "/Applications/MediaInfo.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": null
+    },
+    {
+      "token": "monitorcontrol",
+      "apps": [
+        "/Applications/MonitorControl.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "mounty",
+      "apps": [
+        "/Applications/Mounty.app"
+      ],
+      "unattended": true,
+      "reason": "Present app bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "onyx",
+      "apps": [
+        "/Applications/OnyX.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": null
+    },
+    {
+      "token": "orbstack",
+      "apps": [
+        "/Applications/OrbStack.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "powerphotos",
+      "apps": [
+        "/Applications/PowerPhotos.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "qflipper",
+      "apps": [
+        "/Applications/qFlipper.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": null
+    },
+    {
+      "token": "requestly",
+      "apps": [
+        "/Applications/Requestly.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": null
+    },
+    {
+      "token": "sf-symbols",
+      "apps": [],
+      "unattended": false,
+      "reason": "Interactive/privileged installer or no app bundle to validate",
+      "auto_updates": true
+    },
+    {
+      "token": "sol",
+      "apps": [
+        "/Applications/Sol.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": null
+    },
+    {
+      "token": "sourcetree",
+      "apps": [
+        "/Applications/Sourcetree.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "superduper",
+      "apps": [
+        "/Applications/SuperDuper!.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "tailscale-app",
+      "apps": [],
+      "unattended": false,
+      "reason": "Interactive/privileged installer or no app bundle to validate",
+      "auto_updates": true
+    },
+    {
+      "token": "telegram",
+      "apps": [
+        "/Applications/Telegram.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "topnotch",
+      "apps": [
+        "/Applications/TopNotch.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "transmission",
+      "apps": [
+        "/Applications/Transmission.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "visual-studio-code",
+      "apps": [
+        "/Applications/Visual Studio Code.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "vlc",
+      "apps": [
+        "/Applications/VLC.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "zen",
+      "apps": [
+        "/Applications/Zen.app"
+      ],
+      "unattended": true,
+      "reason": "App bundle installer",
+      "auto_updates": true
+    },
+    {
+      "token": "zoom",
+      "apps": [],
+      "unattended": false,
+      "reason": "Interactive/privileged installer or no app bundle to validate",
+      "auto_updates": true
+    }
+  ]
+}

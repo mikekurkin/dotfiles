@@ -1,0 +1,52 @@
+# Plugin installation is an explicit bootstrap operation, never shell startup.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+typeset -U path PATH
+path=("$HOME/.local/bin" "$HOME/.local/share/mise/shims" $path)
+autoload -Uz compinit
+compinit
+_dotfiles_plugins="$HOME/.local/share/dotfiles/plugins"
+for script in \
+  "$_dotfiles_plugins/oh-my-zsh/lib/git.zsh" \
+  "$_dotfiles_plugins/oh-my-zsh/lib/clipboard.zsh" \
+  "$_dotfiles_plugins/oh-my-zsh/lib/history.zsh" \
+  "$_dotfiles_plugins/oh-my-zsh/plugins/git/git.plugin.zsh" \
+  "$_dotfiles_plugins/oh-my-zsh/plugins/fasd/fasd.plugin.zsh" \
+  "$_dotfiles_plugins/history-substring-search/zsh-history-substring-search.zsh" \
+  "$_dotfiles_plugins/git-flow-completion/git-flow-completion.zsh" \
+  "$_dotfiles_plugins/powerlevel10k/powerlevel10k.zsh-theme"; do
+  [[ ! -r "$script" ]] || source "$script"
+done
+setopt inc_append_history share_history
+[[ ! -r "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+bindkey -v
+export KEYTIMEOUT=1
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^[a' beginning-of-line
+bindkey '^[e' end-of-line
+if (( $+widgets[history-substring-search-up] )); then
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+fi
+for script in "$HOME/.functions" "$HOME/.aliases" "$HOME/.environment" "$HOME/.config/broot/launcher/bash/br"; do
+  [[ ! -r "$script" ]] || source "$script"
+done
+if (( $+commands[mise] )); then
+  eval "$(mise activate zsh)"
+fi
+# Highlighting loads after widgets and aliases.
+[[ ! -r "$_dotfiles_plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ]] || \
+  source "$_dotfiles_plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+# Resolve tools through PATH; missing retry support falls back to Claude itself.
+unalias claude 2>/dev/null || true
+claude() {
+  if [[ ${CLAUDE_AUTO_RETRY_ACTIVE:-0} == 1 ]] || ! (( $+commands[claude-auto-retry] )); then
+    command claude "$@"
+  else
+    CLAUDE_AUTO_RETRY_ACTIVE=1 command claude-auto-retry "$@"
+  fi
+}
+unset _dotfiles_plugins script

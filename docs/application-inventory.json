@@ -1,0 +1,1006 @@
+[
+  {
+    "application": ".Karabiner-VirtualHIDDevice-Manager",
+    "path": "/Applications/.Karabiner-VirtualHIDDevice-Manager.app",
+    "bundle_id": "org.pqrs.Karabiner-VirtualHIDDevice-Manager",
+    "disposition": "provided",
+    "reason": "macOS or installed with its parent tool"
+  },
+  {
+    "application": "Adguard",
+    "path": "/Applications/Adguard.app",
+    "bundle_id": "com.adguard.mac.adguard",
+    "disposition": "optional",
+    "token": "adguard",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "AdGuard VPN",
+    "path": "/Applications/AdGuard VPN.app",
+    "bundle_id": "com.adguard.mac.vpn",
+    "disposition": "optional",
+    "token": "adguard-vpn",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "AeroSpace",
+    "path": "/Applications/AeroSpace.app",
+    "bundle_id": "bobko.aerospace",
+    "disposition": "cask",
+    "token": "aerospace"
+  },
+  {
+    "application": "Akko Cloud Driver",
+    "path": "/Applications/Akko Cloud Driver.app",
+    "bundle_id": "com.rongyuan.driverElectron",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Akko Cloud Driver.bad",
+    "path": "/Applications/Akko Cloud Driver.bad.app",
+    "bundle_id": "com.rongyuan.driverElectron",
+    "disposition": "excluded",
+    "reason": "Retired by user or broken duplicate bundle"
+  },
+  {
+    "application": "Alfred 4",
+    "path": "/Applications/Alfred 4.app",
+    "bundle_id": "com.runningwithcrayons.Alfred",
+    "disposition": "excluded",
+    "reason": "Retired by user or broken duplicate bundle"
+  },
+  {
+    "application": "AltServer",
+    "path": "/Applications/AltServer.app",
+    "bundle_id": "com.rileytestut.AltServer",
+    "disposition": "cask",
+    "token": "altserver"
+  },
+  {
+    "application": "AmneziaVPN",
+    "path": "/Applications/AmneziaVPN.app",
+    "bundle_id": "com.yourcompany.AmneziaVPN",
+    "disposition": "optional",
+    "token": "amneziavpn",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Amphetamine",
+    "path": "/Applications/Amphetamine.app",
+    "bundle_id": "com.if.Amphetamine",
+    "disposition": "app-store",
+    "id": 937984704,
+    "reason": "Existing App Store identity; requires account sign-in"
+  },
+  {
+    "application": "AnyDesk",
+    "path": "/Applications/AnyDesk.app",
+    "bundle_id": "com.philandro.anydesk",
+    "disposition": "cask",
+    "token": "anydesk"
+  },
+  {
+    "application": "Autodesk Fusion",
+    "path": "$HOME/Applications/Autodesk Fusion.app",
+    "bundle_id": "com.autodesk.dls.streamer.scriptapp.Autodesk-Fusion",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Autodesk Fusion Service Utility",
+    "path": "$HOME/Applications/Autodesk Fusion Service Utility.app",
+    "bundle_id": "com.autodesk.dls.streamer.scriptapp.Autodesk-Fusion-Service-Utility",
+    "disposition": "provided",
+    "reason": "Installed with Autodesk Fusion, not a separate installer"
+  },
+  {
+    "application": "BetterDisplay",
+    "path": "/Applications/BetterDisplay.app",
+    "bundle_id": "pro.betterdisplay.BetterDisplay",
+    "disposition": "cask",
+    "token": "betterdisplay"
+  },
+  {
+    "application": "Bitwarden",
+    "path": "/Applications/Bitwarden.app",
+    "bundle_id": "com.bitwarden.desktop",
+    "disposition": "optional",
+    "token": "bitwarden",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Blackmagic Disk Speed Test",
+    "path": "/Applications/Blackmagic Disk Speed Test.app",
+    "bundle_id": "com.blackmagic-design.DiskSpeedTest",
+    "disposition": "app-store",
+    "id": 425264550,
+    "reason": "Existing App Store identity; requires account sign-in"
+  },
+  {
+    "application": "Boop",
+    "path": "/Applications/Boop.app",
+    "bundle_id": "com.okatbest.boop",
+    "disposition": "cask",
+    "token": "boop"
+  },
+  {
+    "application": "Chromium",
+    "path": "/Applications/Chromium.app",
+    "bundle_id": "org.chromium.Chromium",
+    "disposition": "manual",
+    "reason": "Restore the current vendor/product edition; do not substitute a different browser, filesystem driver, or licensed SketchUp version"
+  },
+  {
+    "application": "Claude Code URL Handler",
+    "path": "$HOME/Applications/Claude Code URL Handler.app",
+    "bundle_id": "com.anthropic.claude-code-url-handler",
+    "disposition": "provided",
+    "reason": "Installed with Claude Code, not a separate installer"
+  },
+  {
+    "application": "Clean Me",
+    "path": "/Applications/Clean Me.app",
+    "bundle_id": "com.KevinDeKoninck.Clean-Me",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "CleanMyMac X",
+    "path": "/Applications/CleanMyMac X.app",
+    "bundle_id": "com.macpaw.CleanMyMac4",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "coconutBattery",
+    "path": "/Applications/coconutBattery.app",
+    "bundle_id": "com.coconut-flavour.coconutBattery",
+    "disposition": "cask",
+    "token": "coconutbattery"
+  },
+  {
+    "application": "Codex",
+    "path": "/Applications/Codex.app",
+    "bundle_id": "com.openai.codex",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "CotEditor",
+    "path": "/Applications/CotEditor.app",
+    "bundle_id": "com.coteditor.CotEditor",
+    "disposition": "planned-cask",
+    "token": "coteditor",
+    "present_at_capture": false,
+    "reason": "Selected by user for fresh installation"
+  },
+  {
+    "application": "Cursor",
+    "path": "/Applications/Cursor.app",
+    "bundle_id": "com.todesktop.230313mzl4w4u92",
+    "disposition": "excluded",
+    "reason": "Retired by user or broken duplicate bundle"
+  },
+  {
+    "application": "DaisyDisk",
+    "path": "/Applications/DaisyDisk.app",
+    "bundle_id": "com.daisydiskapp.DaisyDiskStandAlone",
+    "disposition": "cask",
+    "token": "daisydisk"
+  },
+  {
+    "application": "Dark Mode for Safari",
+    "path": "/Applications/Dark Mode for Safari.app",
+    "bundle_id": "com.alexandrudenk.Dark-Mode-for-Safari",
+    "disposition": "app-store",
+    "id": 1397180934,
+    "reason": "Existing App Store identity; requires account sign-in"
+  },
+  {
+    "application": "Dash",
+    "path": "/Applications/Dash.app",
+    "bundle_id": "com.kapeli.dashdoc",
+    "disposition": "cask",
+    "token": "dash"
+  },
+  {
+    "application": "DaVinci Control Panels Setup",
+    "path": "/Applications/DaVinci Resolve/DaVinci Control Panels Setup.app",
+    "bundle_id": "com.blackmagic-design.davincicontrolpanels.utility",
+    "disposition": "provided",
+    "reason": "Installed with DaVinci Resolve, not a separate installer"
+  },
+  {
+    "application": "DaVinci Resolve",
+    "path": "/Applications/DaVinci Resolve/DaVinci Resolve.app",
+    "bundle_id": "com.blackmagic-design.DaVinciResolve",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "DBeaver",
+    "path": "/Applications/DBeaver.app",
+    "bundle_id": "org.jkiss.dbeaver.core.product",
+    "disposition": "optional",
+    "token": "dbeaver-community",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Disk Drill",
+    "path": "/Applications/Disk Drill.app",
+    "bundle_id": "com.cleverfiles.DiskDrill",
+    "disposition": "optional",
+    "token": "disk-drill",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Dozer",
+    "path": "/Applications/Dozer.app",
+    "bundle_id": "com.mortennn.Dozer",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Epic Games Launcher",
+    "path": "/Applications/Epic Games Launcher.app",
+    "bundle_id": "com.epicgames.EpicGamesLauncher",
+    "disposition": "optional",
+    "token": "epic-games",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Fairlight Studio Utility",
+    "path": "/Applications/DaVinci Resolve/Fairlight Studio Utility.app",
+    "bundle_id": "com.blackmagic-design.fairlightpanels.configutility",
+    "disposition": "provided",
+    "reason": "Installed with DaVinci Resolve, not a separate installer"
+  },
+  {
+    "application": "Figma",
+    "path": "/Applications/Figma.app",
+    "bundle_id": "com.figma.Desktop",
+    "disposition": "optional",
+    "token": "figma",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Firefox",
+    "path": "/Applications/Firefox.app",
+    "bundle_id": "org.mozilla.firefox",
+    "disposition": "cask",
+    "token": "firefox"
+  },
+  {
+    "application": "Fork",
+    "path": "/Applications/Fork.app",
+    "bundle_id": "com.DanPristupov.Fork",
+    "disposition": "cask",
+    "token": "fork"
+  },
+  {
+    "application": "FoXray",
+    "path": "/Applications/FoXray.app",
+    "bundle_id": "dev.yiguo.FoXray",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "FreeCAD",
+    "path": "/Applications/FreeCAD.app",
+    "bundle_id": "org.freecad.FreeCAD",
+    "disposition": "optional",
+    "token": "freecad",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Garmin Express",
+    "path": "/Applications/Garmin Express.app",
+    "bundle_id": "com.garmin.renu.client",
+    "disposition": "optional",
+    "token": "garmin-express",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Gemini 2",
+    "path": "/Applications/Gemini 2.app",
+    "bundle_id": "com.macpaw.site.Gemini2",
+    "disposition": "cask",
+    "token": "gemini"
+  },
+  {
+    "application": "Ghostty",
+    "path": "/Applications/Ghostty.app",
+    "bundle_id": "com.mitchellh.ghostty",
+    "disposition": "excluded",
+    "reason": "Retired by user or broken duplicate bundle"
+  },
+  {
+    "application": "GitKraken",
+    "path": "/Applications/GitKraken.app",
+    "bundle_id": "com.axosoft.gitkraken",
+    "disposition": "optional",
+    "token": "gitkraken",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Google Earth Pro",
+    "path": "/Applications/Google Earth Pro.app",
+    "bundle_id": "com.Google.GoogleEarthPro",
+    "disposition": "optional",
+    "token": "google-earth-pro",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Guitar Pro 7",
+    "path": "/Applications/Guitar Pro 7.app",
+    "bundle_id": "com.arobas-music.guitarpro7",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "HandBrake",
+    "path": "/Applications/HandBrake.app",
+    "bundle_id": "fr.handbrake.HandBrake",
+    "disposition": "cask",
+    "token": "handbrake-app"
+  },
+  {
+    "application": "Happ",
+    "path": "/Applications/Happ.app",
+    "bundle_id": "su.ffg.happ.plus",
+    "disposition": "cask",
+    "token": "happ"
+  },
+  {
+    "application": "Helium",
+    "path": "/Applications/Helium.app",
+    "bundle_id": "net.imput.helium",
+    "disposition": "optional",
+    "token": "helium-browser",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Hex Fiend",
+    "path": "/Applications/Hex Fiend.app",
+    "bundle_id": "com.ridiculousfish.HexFiend",
+    "disposition": "optional",
+    "token": "hex-fiend",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Hyperspace",
+    "path": "/Applications/Hyperspace.app",
+    "bundle_id": "co.hypercritical.Hyperspace",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "IINA",
+    "path": "/Applications/IINA.app",
+    "bundle_id": "com.colliderli.iina",
+    "disposition": "cask",
+    "token": "iina"
+  },
+  {
+    "application": "Imaging Edge Desktop",
+    "path": "/Applications/Imaging Edge Desktop.app",
+    "bundle_id": "com.sony.ImagingEdgeDesktop",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Insta360 Studio",
+    "path": "/Applications/Insta360 Studio.app",
+    "bundle_id": "com.insta360.studio",
+    "disposition": "cask",
+    "token": "insta360-studio"
+  },
+  {
+    "application": "iOS App Signer",
+    "path": "/Applications/iOS App Signer.app",
+    "bundle_id": "com.DanTheMan827.AppSigner",
+    "disposition": "cask",
+    "token": "ios-app-signer"
+  },
+  {
+    "application": "iTerm",
+    "path": "/Applications/iTerm.app",
+    "bundle_id": "com.googlecode.iterm2",
+    "disposition": "cask",
+    "token": "iterm2"
+  },
+  {
+    "application": "Karabiner-Elements",
+    "path": "/Applications/Karabiner-Elements.app",
+    "bundle_id": "org.pqrs.Karabiner-Elements.Settings",
+    "disposition": "cask",
+    "token": "karabiner-elements"
+  },
+  {
+    "application": "Karabiner-EventViewer",
+    "path": "/Applications/Karabiner-EventViewer.app",
+    "bundle_id": "org.pqrs.Karabiner-EventViewer",
+    "disposition": "provided",
+    "reason": "macOS or installed with its parent tool"
+  },
+  {
+    "application": "Keka",
+    "path": "/Applications/Keka.app",
+    "bundle_id": "com.aone.keka",
+    "disposition": "cask",
+    "token": "keka"
+  },
+  {
+    "application": "Keynote",
+    "path": "/Applications/Keynote.app",
+    "bundle_id": "com.apple.iWork.Keynote",
+    "disposition": "app-store",
+    "id": 409183694,
+    "reason": "Existing App Store identity; requires account sign-in"
+  },
+  {
+    "application": "kindaVim",
+    "path": "/Applications/kindaVim.app",
+    "bundle_id": "mo.com.sleeplessmind.kindaVim",
+    "disposition": "optional",
+    "token": "kindavim",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Latest",
+    "path": "/Applications/Latest.app",
+    "bundle_id": "com.max-langer.Latest",
+    "disposition": "cask",
+    "token": "latest"
+  },
+  {
+    "application": "LayOut",
+    "path": "/Applications/SketchUp 2025/LayOut.app",
+    "bundle_id": "com.sketchup.LayOut.2025",
+    "disposition": "provided",
+    "reason": "Installed with SketchUp 2025, not a separate installer"
+  },
+  {
+    "application": "LocalSend",
+    "path": "/Applications/LocalSend.app",
+    "bundle_id": "org.localsend.localsendApp",
+    "disposition": "cask",
+    "token": "localsend"
+  },
+  {
+    "application": "Logi Bolt",
+    "path": "/Applications/Logi Bolt.app",
+    "bundle_id": "com.logi.bolt.app",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "logioptionsplus",
+    "path": "/Applications/logioptionsplus.app",
+    "bundle_id": "com.logi.optionsplus",
+    "disposition": "cask",
+    "token": "logi-options+"
+  },
+  {
+    "application": "Maccy",
+    "path": "/Applications/Maccy.app",
+    "bundle_id": "org.p0deje.Maccy",
+    "disposition": "cask",
+    "token": "maccy"
+  },
+  {
+    "application": "Mactracker",
+    "path": "/Applications/Mactracker.app",
+    "bundle_id": "com.mactrackerapp.Mactracker",
+    "disposition": "app-store",
+    "id": 430255202,
+    "reason": "Existing App Store identity; requires account sign-in"
+  },
+  {
+    "application": "MediaInfo",
+    "path": "/Applications/MediaInfo.app",
+    "bundle_id": "net.mediaarea.mediainfo.mac-old",
+    "disposition": "cask",
+    "token": "mediainfo"
+  },
+  {
+    "application": "Microsoft Excel",
+    "path": "/Applications/Microsoft Excel.app",
+    "bundle_id": "com.microsoft.Excel",
+    "disposition": "app-store",
+    "id": 462058435,
+    "reason": "Existing App Store identity; requires account sign-in"
+  },
+  {
+    "application": "Microsoft Word",
+    "path": "/Applications/Microsoft Word.app",
+    "bundle_id": "com.microsoft.Word",
+    "disposition": "app-store",
+    "id": 462054704,
+    "reason": "Existing App Store identity; requires account sign-in"
+  },
+  {
+    "application": "MonitorControl",
+    "path": "/Applications/MonitorControl.app",
+    "bundle_id": "app.monitorcontrol.MonitorControl",
+    "disposition": "cask",
+    "token": "monitorcontrol"
+  },
+  {
+    "application": "Mounty",
+    "path": "/Applications/Mounty.app",
+    "bundle_id": "com.cu4uc.mounty",
+    "disposition": "cask",
+    "token": "mounty"
+  },
+  {
+    "application": "Mullvad VPN",
+    "path": "/Applications/Mullvad VPN.app",
+    "bundle_id": "net.mullvad.vpn",
+    "disposition": "optional",
+    "token": "mullvad-vpn",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Numbers",
+    "path": "/Applications/Numbers.app",
+    "bundle_id": "com.apple.iWork.Numbers",
+    "disposition": "app-store",
+    "id": 409203825,
+    "reason": "Existing App Store identity; requires account sign-in"
+  },
+  {
+    "application": "Obsidian",
+    "path": "/Applications/Obsidian.app",
+    "bundle_id": "md.obsidian",
+    "disposition": "optional",
+    "token": "obsidian",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "OmniGraffle",
+    "path": "/Applications/OmniGraffle.app",
+    "bundle_id": "com.omnigroup.OmniGraffle7",
+    "disposition": "optional",
+    "token": "omnigraffle",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "OnyX",
+    "path": "/Applications/OnyX.app",
+    "disposition": "cask",
+    "token": "onyx"
+  },
+  {
+    "application": "OpenVPN Connect",
+    "path": "/Applications/OpenVPN Connect.app",
+    "bundle_id": "org.openvpn.client.app",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "OrbStack",
+    "path": "/Applications/OrbStack.app",
+    "bundle_id": "dev.kdrag0n.MacVirt",
+    "disposition": "cask",
+    "token": "orbstack"
+  },
+  {
+    "application": "Outline",
+    "path": "/Applications/Outline.app",
+    "bundle_id": "org.outline.macos.client",
+    "disposition": "optional",
+    "token": "outline",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Pages",
+    "path": "/Applications/Pages.app",
+    "bundle_id": "com.apple.iWork.Pages",
+    "disposition": "app-store",
+    "id": 409201541,
+    "reason": "Existing App Store identity; requires account sign-in"
+  },
+  {
+    "application": "Passepartout",
+    "path": "/Applications/Passepartout.app",
+    "bundle_id": "com.algoritmico.ios.Passepartout",
+    "disposition": "optional",
+    "token": "passepartout",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "PD Runner",
+    "path": "/Applications/PD Runner.app",
+    "bundle_id": "com.lihaoyun6.PD-Runner",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "PDF Expert",
+    "path": "/Applications/PDF Expert.app",
+    "bundle_id": "com.readdle.PDFExpert-Mac",
+    "disposition": "optional",
+    "token": "pdf-expert",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "PiPifier",
+    "path": "/Applications/PiPifier.app",
+    "bundle_id": "de.APPenzeller.PiPifier",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Pixelmator Pro",
+    "path": "/Applications/Pixelmator Pro.app",
+    "bundle_id": "com.pixelmatorteam.pixelmator.x",
+    "disposition": "app-store",
+    "id": 1289583905,
+    "reason": "Existing App Store identity; requires account sign-in"
+  },
+  {
+    "application": "Postman",
+    "path": "/Applications/Postman.app",
+    "bundle_id": "com.postmanlabs.mac",
+    "disposition": "optional",
+    "token": "postman",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "PowerPhotos",
+    "path": "/Applications/PowerPhotos.app",
+    "bundle_id": "com.fatcatsoftware.PowerPhotos",
+    "disposition": "cask",
+    "token": "powerphotos"
+  },
+  {
+    "application": "qFlipper",
+    "path": "/Applications/qFlipper.app",
+    "bundle_id": "com.yourcompany.qFlipper",
+    "disposition": "cask",
+    "token": "qflipper"
+  },
+  {
+    "application": "Raycast",
+    "path": "/Applications/Raycast.app",
+    "bundle_id": "com.raycast.macos",
+    "disposition": "excluded",
+    "reason": "Retired by user; replaced with Sol or CotEditor"
+  },
+  {
+    "application": "Remove Autodesk Fusion",
+    "path": "$HOME/Applications/Remove Autodesk Fusion.app",
+    "bundle_id": "com.autodesk.dls.streamer.scriptapp.Remove-Autodesk-Fusion",
+    "disposition": "provided",
+    "reason": "Installed with Autodesk Fusion, not a separate installer"
+  },
+  {
+    "application": "Requestly",
+    "path": "/Applications/Requestly.app",
+    "bundle_id": "io.requestly.beta",
+    "disposition": "cask",
+    "token": "requestly"
+  },
+  {
+    "application": "Safari",
+    "path": "/Applications/Safari.app",
+    "bundle_id": "com.apple.Safari",
+    "disposition": "provided",
+    "reason": "macOS or installed with its parent tool"
+  },
+  {
+    "application": "SF Symbols",
+    "path": "/Applications/SF Symbols.app",
+    "bundle_id": "com.apple.SFSymbols",
+    "disposition": "cask",
+    "token": "sf-symbols"
+  },
+  {
+    "application": "Sideloadly",
+    "path": "/Applications/Sideloadly.app",
+    "bundle_id": "io.sideloadly.sideloadly",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Simulator",
+    "path": "/Applications/Simulator.app",
+    "bundle_id": "com.apple.iphonesimulator",
+    "disposition": "provided",
+    "reason": "macOS or installed with its parent tool"
+  },
+  {
+    "application": "Simulator (Watch)",
+    "path": "/Applications/Simulator (Watch).app",
+    "disposition": "provided",
+    "reason": "macOS or installed with its parent tool"
+  },
+  {
+    "application": "SketchUp",
+    "path": "/Applications/SketchUp 2025/SketchUp.app",
+    "bundle_id": "com.sketchup.SketchUp.2025",
+    "disposition": "manual",
+    "reason": "Restore the current vendor/product edition; do not substitute a different browser, filesystem driver, or licensed SketchUp version"
+  },
+  {
+    "application": "Sol",
+    "path": "/Applications/Sol.app",
+    "bundle_id": "com.ospfranco.sol",
+    "disposition": "planned-cask",
+    "token": "sol",
+    "present_at_capture": false,
+    "reason": "Selected by user for fresh installation"
+  },
+  {
+    "application": "Sourcetree",
+    "path": "/Applications/Sourcetree.app",
+    "bundle_id": "com.torusknot.SourceTreeNotMAS",
+    "disposition": "cask",
+    "token": "sourcetree"
+  },
+  {
+    "application": "Spatial Media Metadata Injector",
+    "path": "/Applications/Spatial Media Metadata Injector.app",
+    "bundle_id": "Spatial Media Metadata Injector",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Speedtest",
+    "path": "/Applications/Speedtest.app",
+    "bundle_id": "com.ookla.speedtest-macos",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Sublime Merge",
+    "path": "/Applications/Sublime Merge.app",
+    "bundle_id": "com.sublimemerge",
+    "disposition": "optional",
+    "token": "sublime-merge",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Sublime Text",
+    "path": "/Applications/Sublime Text.app",
+    "bundle_id": "com.sublimetext.4",
+    "disposition": "excluded",
+    "reason": "Retired by user; replaced with Sol or CotEditor"
+  },
+  {
+    "application": "Subsee",
+    "path": "/Applications/Subsee.app",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Super Agent",
+    "path": "/Applications/Super Agent.app",
+    "bundle_id": "com.agent.super.extension.safari",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "SuperDuper!",
+    "path": "/Applications/SuperDuper!.app",
+    "bundle_id": "com.shirtpocket.SuperDuper4",
+    "disposition": "cask",
+    "token": "superduper"
+  },
+  {
+    "application": "SwiftBar",
+    "path": "/Applications/SwiftBar.app",
+    "bundle_id": "com.ameba.SwiftBar",
+    "disposition": "optional",
+    "token": "swiftbar",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "T-Mazing",
+    "path": "/Applications/T-Mazing.app",
+    "bundle_id": "ru.tfinance.tmazing",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Tailscale",
+    "path": "/Applications/Tailscale.app",
+    "bundle_id": "io.tailscale.ipn.macos",
+    "disposition": "cask",
+    "token": "tailscale-app"
+  },
+  {
+    "application": "Tampermonkey Classic",
+    "path": "/Applications/Tampermonkey Classic.app",
+    "bundle_id": "net.tampermonkey.SafariApp",
+    "disposition": "app-store",
+    "id": 1482490089,
+    "reason": "Existing App Store identity; requires account sign-in"
+  },
+  {
+    "application": "Telegram",
+    "path": "/Applications/Telegram.app",
+    "bundle_id": "ru.keepcoder.Telegram",
+    "disposition": "cask",
+    "token": "telegram"
+  },
+  {
+    "application": "Telegram 2",
+    "path": "/Applications/Telegram 2.app",
+    "bundle_id": "com.tdesktop.Telegram",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Telegram Desktop",
+    "path": "/Applications/Telegram Desktop.app",
+    "bundle_id": "com.tdesktop.Telegram",
+    "disposition": "optional",
+    "token": "telegram-desktop",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Telegram-1",
+    "path": "/Applications/Telegram-1.app",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "TextMate",
+    "path": "/Applications/TextMate.app",
+    "bundle_id": "com.macromates.TextMate",
+    "disposition": "excluded",
+    "reason": "Retired by user; replaced with Sol or CotEditor"
+  },
+  {
+    "application": "TopNotch",
+    "path": "/Applications/TopNotch.app",
+    "bundle_id": "pl.maketheweb.TopNotch",
+    "disposition": "cask",
+    "token": "topnotch"
+  },
+  {
+    "application": "TrackWeight",
+    "path": "/Applications/TrackWeight.app",
+    "bundle_id": "com.krishkrosh.trackweight",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Transcribe!",
+    "path": "/Applications/Transcribe!.app",
+    "bundle_id": "com.seventhstring.transcribe",
+    "disposition": "optional",
+    "token": "transcribe",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Transmission",
+    "path": "/Applications/Transmission.app",
+    "bundle_id": "org.m0k.transmission",
+    "disposition": "cask",
+    "token": "transmission"
+  },
+  {
+    "application": "Typora",
+    "path": "/Applications/Typora.app",
+    "bundle_id": "abnerworks.Typora",
+    "disposition": "excluded",
+    "reason": "Retired by user; replaced with Sol or CotEditor"
+  },
+  {
+    "application": "Uninstall Resolve",
+    "path": "/Applications/DaVinci Resolve/Uninstall Resolve.app",
+    "bundle_id": "com.blackmagic-design.UninstallDaVinciResolve",
+    "disposition": "provided",
+    "reason": "Installed with DaVinci Resolve, not a separate installer"
+  },
+  {
+    "application": "Vimari",
+    "path": "/Applications/Vimari.app",
+    "bundle_id": "net.televator.Vimari",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Visual Studio Code",
+    "path": "/Applications/Visual Studio Code.app",
+    "bundle_id": "com.microsoft.VSCode",
+    "disposition": "cask",
+    "token": "visual-studio-code"
+  },
+  {
+    "application": "VLC",
+    "path": "/Applications/VLC.app",
+    "bundle_id": "org.videolan.vlc",
+    "disposition": "cask",
+    "token": "vlc"
+  },
+  {
+    "application": "WiFi Explorer",
+    "path": "/Applications/WiFi Explorer.app",
+    "bundle_id": "wifiexplorer",
+    "disposition": "optional",
+    "token": "wifi-explorer",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Windows App",
+    "path": "/Applications/Windows App.app",
+    "bundle_id": "com.microsoft.rdc.macos",
+    "disposition": "app-store",
+    "id": 1295203466,
+    "reason": "Existing App Store identity; requires account sign-in"
+  },
+  {
+    "application": "Windsurf",
+    "path": "/Applications/Windsurf.app",
+    "bundle_id": "com.exafunction.windsurf",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "WireGuard",
+    "path": "/Applications/WireGuard.app",
+    "bundle_id": "com.wireguard.macos",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Wireless Auto Import",
+    "path": "/Applications/Wireless Auto Import.app",
+    "bundle_id": "com.sony.WirelessAutoImport",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Xcode",
+    "path": "/Applications/Xcode.app",
+    "bundle_id": "com.apple.dt.Xcode",
+    "disposition": "manual",
+    "reason": "Install Xcode from App Store separately; select developer directory afterward"
+  },
+  {
+    "application": "Yandex Smart Home Control",
+    "path": "/Applications/Yandex Smart Home Control.app",
+    "bundle_id": "com.onegamerstory.smarthomecontrol",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "YouTube+",
+    "path": "/Applications/YouTube+.app",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "Zed",
+    "path": "/Applications/Zed.app",
+    "bundle_id": "dev.zed.Zed",
+    "disposition": "optional",
+    "token": "zed",
+    "reason": "Do not install on fresh setup; user uses occasionally"
+  },
+  {
+    "application": "Zen",
+    "path": "/Applications/Zen.app",
+    "bundle_id": "app.zen-browser.zen",
+    "disposition": "cask",
+    "token": "zen"
+  },
+  {
+    "application": "Zenmoney",
+    "path": "/Applications/Zenmoney.app",
+    "disposition": "manual",
+    "reason": "Vendor/licensed, unidentified, or deprecated cask; verify macOS 27 support"
+  },
+  {
+    "application": "zoom.us",
+    "path": "/Applications/zoom.us.app",
+    "bundle_id": "us.zoom.xos",
+    "disposition": "cask",
+    "token": "zoom"
+  }
+]

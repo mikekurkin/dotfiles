@@ -1,0 +1,122 @@
+##### Terminal ###############################################################
+
+set -g default-terminal "tmux-256color"
+set -as terminal-features ",*:RGB"
+
+set -g focus-events on
+set -g history-limit 100000
+
+##### Prefix #################################################################
+
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
+
+##### Vim bindings ###########################################################
+
+setw -g mode-keys vi
+
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
+
+bind c new-window -c "#{pane_current_path}"
+
+##### Reload #################################################################
+
+bind r source-file ~/.tmux.conf \; display-message "tmux config reloaded"
+
+##### Windows ################################################################
+
+set -g base-index 1
+setw -g pane-base-index 1
+set -g renumber-windows on
+
+##### Mouse ##################################################################
+
+set -g mouse on
+
+##### Escape #################################################################
+
+set -sg escape-time 0
+
+##### Synchronize panes ######################################################
+
+bind y setw synchronize-panes
+
+##### Fuzzy session picker ##################################################
+
+bind f run-shell "tmux list-sessions -F '#S' | fzf | xargs tmux switch-client -t"
+
+##### Status #################################################################
+
+#set -g status-position bottom
+#set -g status-interval 5
+
+#set -g status-style "bg=#1e1e2e,fg=#cdd6f4"
+
+#set -g message-style "bg=#89b4fa,fg=#1e1e2e"
+
+#set -g pane-border-style "fg=#45475a"
+#set -g pane-active-border-style "fg=#89b4fa"
+
+#set -g window-status-style "fg=#6c7086"
+#set -g window-status-current-style "fg=#89b4fa,bold"
+
+#set -g status-left-length 40
+#set -g status-right-length 120
+
+#set -g status-left "#[fg=#89b4fa]#[bg=#89b4fa,fg=#1e1e2e,bold] #S #[bg=#1e1e2e,fg=#89b4fa]"
+
+#set -g status-right "\
+##[fg=#89b4fa]\
+##[bg=#89b4fa,fg=#1e1e2e]#(whoami)\
+##[fg=#89b4fa,bg=#1e1e2e] \
+##[fg=#a6e3a1]%Y-%m-%d \
+##[fg=#f9e2af]%H:%M "
+
+setw -g window-status-format " #I:#W "
+setw -g window-status-current-format "#[bold] #I:#W "
+
+
+##### Performance ############################################################
+
+set -g repeat-time 300
+
+##### Clipboard ##############################################################
+
+set -g set-clipboard on
+
+# Sensible defaults
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Better navigation
+set -g @plugin 'christoomey/vim-tmux-navigator'
+
+# Session persistence
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+set -g @plugin 'wfxr/tmux-power'
+
+set -g @tmux_power_theme 'snow'
+
+# Plugins are cloned by bootstrap; do not install from a running tmux session.
+if-shell 'test -f "$HOME/.tmux/plugins/tmux-sensible/sensible.tmux"' 'run-shell "$HOME/.tmux/plugins/tmux-sensible/sensible.tmux"'
+if-shell 'test -f "$HOME/.tmux/plugins/vim-tmux-navigator/vim-tmux-navigator.tmux"' 'run-shell "$HOME/.tmux/plugins/vim-tmux-navigator/vim-tmux-navigator.tmux"'
+if-shell 'test -f "$HOME/.tmux/plugins/tmux-resurrect/resurrect.tmux"' 'run-shell "$HOME/.tmux/plugins/tmux-resurrect/resurrect.tmux"'
+if-shell 'test -f "$HOME/.tmux/plugins/tmux-continuum/continuum.tmux"' 'run-shell "$HOME/.tmux/plugins/tmux-continuum/continuum.tmux"'
+if-shell 'test -f "$HOME/.tmux/plugins/tmux-power/tmux-power.tmux"' 'run-shell "$HOME/.tmux/plugins/tmux-power/tmux-power.tmux"'
+
+set -g status-interval 5
+set -g @tmux_power_right_x "#({{ .chezmoi.homeDir }}/.local/bin/dotfiles-tmux-status #{pane_id} #{socket_path})"
+# set -g @tmux_power_right_x "'#{socket_path}'"

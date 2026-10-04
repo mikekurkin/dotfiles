@@ -1,0 +1,254 @@
+{
+  "flake8.args": ["--max-line-length=120"],
+  "editor.fontFamily": "'Iosevka Term SS07', monospace",
+  "editor.fontSize": 15,
+  "terminal.integrated.fontSize": 15,
+  "git.autofetch": true,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.benchmarks": true,
+    "**/.pytest_cache": true
+  },
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "files.associations": {
+    "*.cc": "objective-c"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": false,
+    "python": false,
+    "django-html": false,
+    "pip-requirements": false,
+    "css": false,
+    "javascript": false,
+    "Log": false,
+    "scss": false,
+    "ini": false,
+    "typescript": false,
+    "html": false
+  },
+  "editor.fontLigatures": true,
+  "jupyter.askForKernelRestart": false,
+  "terminal.integrated.fontFamily": "'Iosevka Term SS07'",
+  "smartsemicolon.enable": false,
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 120,
+  "prettier.tabWidth": 2,
+  "prettier.semi": true,
+  "prettier.arrowParens": "avoid",
+  "editor.tabCompletion": "on",
+  "emmet.includeLanguages": {
+    "django-html": "html",
+    "javascript": "html"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "editor.minimap.enabled": false,
+  // "editor.codeActionsOnSave": {
+  //   "source.sortImports": "explicit"
+  // },
+  "editor.tabSize": 2,
+  "[sass]": {
+    "editor.tabSize": 2
+  },
+  "[html]": {
+    "editor.tabSize": 2
+  },
+  "[slim]": {
+    "editor.tabSize": 2
+  },
+  "[django-html]": {
+    "editor.tabSize": 2
+  },
+  "[javascript]": {
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[javascriptreact]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[ruby]": {
+    "editor.tabSize": 2
+  },
+  "[erb]": {
+    "editor.tabSize": 2
+  },
+  "gitlens.showWhatsNewAfterUpgrades": false,
+  "gitlens.showWelcomeOnInstall": false,
+  "gitlens.codeLens.enabled": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "explorer.sortOrder": "type",
+  "[json]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "customizeUI.titleBar": "inline",
+  "customizeUI.stylesheet": {},
+  "customizeUI.activityBar": "regular",
+  "auto-rename-tag.activationOnLanguage": [
+    "*"
+  ],
+  "files.autoSave": "afterDelay",
+  "terminal.external.osxExec": "iTerm.app",
+  "files.autoSaveDelay": 5000,
+  "dotfiles.repository": "mikekurkin/dotfiles",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.acceptSuggestionOnEnter": "off",
+  "[jsonc]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "vim.smartRelativeLine": true,
+  "vim.startInInsertMode": true,
+  "colorInfo.languages": [
+
+    {
+      "selector": "css",
+      "colors": "css"
+    },
+    {
+      "selector": "sass",
+      "colors": "css"
+    },
+    {
+      "selector": "scss",
+      "colors": "css"
+    },
+    {
+      "selector": "less",
+      "colors": "css"
+    },
+    {
+      "selector": "html",
+      "colors": "css"
+    },
+    {
+      "selector": "slim",
+      "colors": "css"
+    }
+  ],
+  "vim.easymotion": true,
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "$HOME/.vim/vimrc",
+  "vim.camelCaseMotion.enable": true,
+  "vim.leader": ",",
+  "vim.statusBarColors.normal": "#505050",
+  "vim.statusBarColors.insert": "#5f0000",
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#5f0000",
+    "statusBar.noFolderBackground": "#5f0000",
+    "statusBar.debuggingBackground": "#5f0000",
+    "statusBar.foreground": "#ffffff",
+    "statusBar.debuggingForeground": "#ffffff"
+  },
+  "vim.statusBarColorControl": true,
+  "vim.textwidth": 120,
+  "vim.useSystemClipboard": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+
+    {
+      "before": ["u"],
+      "commands": ["undo"]
+    },
+    {
+      "before": ["<C-r>"],
+      "commands": ["redo"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["revealInExplorer"]
+    },
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+  ],
+  "vim.operatorPendingModeKeyBindings": [
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+  ],
+  "vim.highlightedyank.enable": true,
+  "vim.hlsearch": true,
+  "vim.autoSwitchInputMethod.defaultIM": "org.sil.ukelele.keyboardlayout.t.keylayout.English-IlyaBirmanTypography",
+  "vim.autoSwitchInputMethod.obtainIMCmd": "/opt/homebrew/bin/im-select",
+  "vim.autoSwitchInputMethod.switchIMCmd": "/opt/homebrew/bin/im-select {im}",
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "editor.largeFileOptimizations": false,
+  "typescript.format.enable": false,
+  "javascript.format.enable": false,
+  "javascript.format.semicolons": "insert",
+  "isort.check": true,
+  "isort.showNotifications": "onWarning",
+  "[plaintext]": {
+    "editor.formatOnSave": false,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false
+  },
+  "git.enableSmartCommit": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.indentSize": "tabSize",
+  "editor.accessibilitySupport": "off",
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.env.osx": {},
+  "console-ninja.featureSet": "Community",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "arena.enableTabAutocomplete": false,
+  "workbench.editor.empty.hint": "hidden",
+  "npm.packageManager": "npm",
+  "npm.scriptRunner": "npm",
+  "workbench.iconTheme": "catppuccin-frappe",
+  // "editor.formatOnSaveMode": "modifications",
+  "eslint.migration.2_x": "off",
+  "workbench.layoutControl.enabled": false,
+  "chat.commandCenter.enabled": false,
+  "workbench.navigationControl.enabled": false,
+  "indentRainbow.indicatorStyle": "light",
+  "indentRainbow.lightIndicatorStyleLineWidth": 2,
+  "editor.guides.indentation": false,
+  "git.blame.editorDecoration.enabled": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "xml.fileAssociations": [
+    { "systemId": ".idea/Xsd/DomainFile.xsd", "pattern": "**/*.Domain.xml" },
+    { "systemId": ".idea/Xsd/UxForm.xsd", "pattern": "**/*.UxForm.xml" },
+    { "systemId": ".idea/Xsd/ListView.xsd", "pattern": "**/*.ListView.xml" },
+    { "systemId": ".idea/Xsd/GroupedListView.xsd", "pattern": "**/*.GroupedListView.xml" },
+    { "systemId": ".idea/Xsd/PrintForm.xsd", "pattern": "**/*.PrintForm.xml" },
+    { "systemId": ".idea/Xsd/ServerMethods.xsd", "pattern": "**/*.ServerMethods.xml" },
+    { "systemId": ".idea/Xsd/ProjectMenu.xsd", "pattern": "**/ProjectMenu.xml" }
+  ],
+  "workbench.activityBar.location": "hidden",
+  "diffEditor.renderSideBySide": false,
+  "security.promptForLocalFileProtocolHandling": false,
+  "auto-close-tag.activationOnLanguage": [
+    "xml"
+  ],
+  "workbench.colorTheme": "Dark Modern",
+  "gitlens.views.commitDetails.files.layout": "tree",
+  "vim.replaceWithRegister": true,
+  "chat.viewSessions.orientation": "stacked",
+  "workbench.statusBar.visible": false
+}

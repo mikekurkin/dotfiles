@@ -1,0 +1,101 @@
+{
+  "dock_app_order": [
+    "Zen",
+    "Launchpad",
+    "Messages",
+    "Mail",
+    "Photos",
+    "Calendar",
+    "Notes",
+    "System Settings",
+    "Telegram"
+  ],
+  "input_sources": [
+    {
+      "Bundle ID": "com.apple.CharacterPaletteIM",
+      "InputSourceKind": "Non Keyboard Input Method"
+    },
+    {
+      "Bundle ID": "com.apple.inputmethod.Kotoeri.KanaTyping",
+      "Input Mode": "com.apple.inputmethod.Japanese",
+      "InputSourceKind": "Input Mode"
+    },
+    {
+      "Bundle ID": "com.apple.inputmethod.Kotoeri.KanaTyping",
+      "Input Mode": "com.apple.inputmethod.Japanese.Katakana",
+      "InputSourceKind": "Input Mode"
+    },
+    {
+      "Bundle ID": "com.apple.inputmethod.Korean",
+      "Input Mode": "com.apple.inputmethod.Korean.2SetKorean",
+      "InputSourceKind": "Input Mode"
+    },
+    {
+      "InputSourceKind": "Keyboard Layout",
+      "KeyboardLayout ID": 252,
+      "KeyboardLayout Name": "ABC"
+    }
+  ],
+  "current_input_source": "org.sil.ukelele.keyboardlayout.t.english\u2013ilyabirmantypography",
+  "homebrew_services": "cloudflared, mysql, openvpn, postgresql@14, transmission-cli were all stopped",
+  "login_agents": [
+    "com.adobe.GC.Invoker-1.0.plist",
+    "com.epicgames.launcher.plist",
+    "io.sideloadly.daemon.plist",
+    "com.github.domt4.homebrew-autoupdate.plist"
+  ],
+  "system_launch_daemon_names": [
+    "com.daisydiskapp.DaisyDiskStandAlone.AdminHelper.plist",
+    "com.microsoft.teams.TeamsUpdaterDaemon.plist",
+    "com.adobe.agsservice.plist",
+    "org.openvpn.client.plist",
+    "com.parallels.mobile.audioloader.launchd.plist",
+    "com.macpaw.CleanMyMac4.Agent.plist",
+    "com.google.GoogleUpdater.wake.system.plist",
+    "de.appgineers.Mountain.Helper.plist",
+    "com.adguard.mac.vpn.tun-helper.plist",
+    "com.adguard.mac.adguard.pac.plist",
+    "org.openvpn.helper.plist",
+    "com.google.keystone.daemon.plist",
+    "dev.orbstack.OrbStack.privhelper.plist",
+    "com.checkpoint.epc.service.plist",
+    "net.mullvad.daemon.plist",
+    "com.logi.optionsplus.updater.plist",
+    "AmneziaVPN.plist",
+    "com.adobe.acc.installer.v2.plist",
+    "com.adguard.mac.adguard.tun-helper.plist",
+    "io.macfuse.app.launchservice.daemon.plist",
+    "us.zoom.ZoomDaemon.plist",
+    "com.microsoft.office.licensingV2.helper.plist",
+    "com.oracle.java.Helper-Tool.plist",
+    "com.adguard.mac.adguard.helper.plist",
+    "com.microsoft.autoupdate.helper.plist"
+  ],
+  "system_launch_agent_names": [
+    "com.google.keystone.xpcservice.plist",
+    "com.google.keystone.agent.plist",
+    "com.checkpoint.eps.gui.plist",
+    "us.zoom.updater.login.check.plist",
+    "com.sony.WirelessAutoImportLauncher.agent.plist",
+    "com.logi.optionsplus.plist",
+    "com.adobe.GC.Invoker-1.0.plist",
+    "com.checkpoint.eps.upgrader.plist",
+    "us.zoom.updater.plist",
+    "com.logitech.LogiRightSight.Agent.plist",
+    "com.sony.SonyAutoLauncher.agent.plist",
+    "com.google.security.zynamics.bindiff.plist",
+    "com.microsoft.update.agent.plist"
+  ],
+  "computer_name": "Wellick",
+  "power_settings_ac": {
+    "lowpowermode": 0,
+    "displaysleep": 60,
+    "sleep": 120,
+    "disksleep": 10,
+    "powernap": 1,
+    "womp": 1,
+    "tcpkeepalive": 1
+  },
+  "gatekeeper": "enabled",
+  "filevault": "unverified: fdesetup status returned Unknown volume in sandbox"
+}

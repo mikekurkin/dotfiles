@@ -1,27 +1,35 @@
 #!/usr/bin/env bash
-
-set -e
-
-OS_RELEASE="/etc/os-release"
-DOCKERENV="/.dockerenv"
-
-[[ ! -f ${OS_RELEASE} ]] || eval "DISTRO_$(cat ${OS_RELEASE} | grep '^ID=')"
-
-if [[ -f ${DOCKERENV} ]]; then
-  if [[ ${DISTRO_ID} -eq "alpine" ]]; then
-    apk update
-    apk add shadow python3 perl openssh ncurses zsh 
-  fi
+set -euo pipefail
+root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+case "${1:-}" in
+  --plan) mode=plan ;;
+  --apply) mode=apply ;;
+  *) echo 'Usage: ./install --plan | ./install --apply [packages configuration runtimes plugins editors preferences maintenance app-store agents]'; exit 2 ;;
+esac
+shift
+for phase in "$@"; do
+  case "$phase" in
+    packages|configuration|runtimes|plugins|editors|preferences|maintenance|app-store|agents) ;;
+    *) echo "Unknown phase: $phase" >&2; exit 2 ;;
+  esac
+done
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_INSTALL_UPGRADE=1
+if [[ "$mode" == apply ]]; then
+  [[ "$(uname -s)" == Darwin && "$(uname -m)" == arm64 ]] || { echo 'This setup targets macOS on Apple Silicon.' >&2; exit 1; }
+  [[ "$(sw_vers -productVersion)" == 27.* ]] || { echo 'Apply requires macOS 27; use --plan or isolated verification on this Mac.' >&2; exit 1; }
+  xcode-select -p >/dev/null 2>&1 || { echo 'Install Command Line Tools with xcode-select --install, then rerun.' >&2; exit 1; }
+  [[ -x /opt/homebrew/bin/brew ]] || { echo 'Install Homebrew from https://brew.sh, then rerun.' >&2; exit 1; }
+  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+  source "$root/home/dot_homebrewrc"
+  /opt/homebrew/bin/brew install chezmoi mise python@3.14 uv
 fi
-
-CONFIG="install.conf.yaml"
-DOTBOT_DIR="dotbot"
-
-DOTBOT_BIN="bin/dotbot"
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-cd "${BASEDIR}"
-git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
-git submodule update --init --recursive "${DOTBOT_DIR}"
-
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+if [[ -x /opt/homebrew/opt/python@3.14/bin/python3.14 ]]; then
+  task_python=/opt/homebrew/opt/python@3.14/bin/python3.14
+elif command -v python3 >/dev/null 2>&1; then
+  task_python="$(command -v python3)"
+else
+  echo 'Plan: install Command Line Tools and Homebrew, then packages, configuration, runtimes, plugins, editors, preferences, maintenance.'
+  exit 0
+fi
+exec "$task_python" "$root/scripts/bootstrap.py" "$mode" "$@"

@@ -1,0 +1,34 @@
+model = "gpt-6.1-sol"
+model_reasoning_effort = "high"
+sandbox_mode = "workspace-write"
+file_opener = "vscode"
+
+[history]
+persistence = "save-all"
+
+[mcp_servers.plan]
+url = "https://plan.agent-native.com/_agent-native/mcp"
+
+[mcp_servers.sketchup]
+url = "https://api.sketchup.com/mcp/v1/sketchup/mcp"
+
+[marketplaces.claude-plugins-official]
+source_type = "git"
+source = "https://github.com/anthropics/claude-plugins-official.git"
+
+[marketplaces.mattpocock]
+source_type = "git"
+source = "https://github.com/mattpocock/skills.git"
+
+[marketplaces.ui-ux-pro-max-skill]
+source_type = "git"
+source = "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git"
+
+[plugins."superpowers@claude-plugins-official"]
+enabled = true
+
+[plugins."mattpocock-skills@mattpocock"]
+enabled = true
+
+[plugins."ui-ux-pro-max@ui-ux-pro-max-skill"]
+enabled = true

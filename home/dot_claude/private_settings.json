@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(git push *)",
+      "Read(*.env)",
+      "Read(/ai)",
+      "Read(*.env*)"
+    ]
+  },
+  "model": "opus",
+  "hooks": {},
+  "enabledPlugins": {
+    "mattpocock-skills@mattpocock": true,
+    "superpowers@claude-plugins-official": true,
+    "ui-ux-pro-max@ui-ux-pro-max-skill": true
+  },
+  "extraKnownMarketplaces": {
+    "mattpocock": {
+      "source": {
+        "source": "github",
+        "repo": "mattpocock/skills"
+      }
+    },
+    "ui-ux-pro-max-skill": {
+      "source": {
+        "source": "github",
+        "repo": "nextlevelbuilder/ui-ux-pro-max-skill"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "theme": "dark"
+}

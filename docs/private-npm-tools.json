@@ -1,0 +1,32 @@
+[
+  {
+    "name": "@dokploy/cli",
+    "version": "v0.2.8",
+    "node_version": "v20.11.0",
+    "restore": "Separate authenticated installation; review project-local alternative"
+  },
+  {
+    "name": "@maxmind/geoip2-node",
+    "version": "6.2.0",
+    "node_version": "v20.11.0",
+    "restore": "Separate authenticated installation; review project-local alternative"
+  },
+  {
+    "name": "@hardroller/client-core",
+    "version": "6.3.1",
+    "node_version": "v20.11.0",
+    "restore": "Separate authenticated installation; review project-local alternative"
+  },
+  {
+    "name": "@hardroller/client-core",
+    "version": "6.3.1",
+    "node_version": "v20.19.0",
+    "restore": "Separate authenticated installation; review project-local alternative"
+  },
+  {
+    "name": "@hardroller/approvals",
+    "version": "6.3.1",
+    "node_version": "v20.19.0",
+    "restore": "Separate authenticated installation; review project-local alternative"
+  }
+]

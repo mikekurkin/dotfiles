@@ -1,0 +1,13 @@
+# Separate phase: ./install --apply app-store after App Store sign-in
+mas "Amphetamine", id: 937984704
+mas "Blackmagic Disk Speed Test", id: 425264550
+mas "Dark Mode for Safari", id: 1397180934
+mas "Keynote", id: 409183694
+mas "Mactracker", id: 430255202
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft Word", id: 462054704
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Pixelmator Pro", id: 1289583905
+mas "Tampermonkey Classic", id: 1482490089
+mas "Windows App", id: 1295203466

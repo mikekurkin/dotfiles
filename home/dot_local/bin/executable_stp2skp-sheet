@@ -1,0 +1,181 @@
+#!/usr/bin/env bash
+# stp2skp-sheet - lay a converted library out as one catalogue .skp.
+# Rows are part codes, columns are nominal sizes.
+set -euo pipefail
+
+SHARE="$HOME/.local/share/stp2skp"
+SU_VER="2025"
+OUT=""
+GAP="20"
+PIPES=1
+SCHEME="dn"
+PIPE_LENGTH="300"
+PIPE_SIZES="12,15,18,22,28,35,42,54"
+PIPE_WALLS="12:1.0,15:1.0,18:1.0,22:1.2,28:1.2,35:1.5,42:1.5,54:1.5"
+
+usage() {
+  cat <<'USAGE'
+usage: stp2skp-sheet [options] <library-dir>
+
+  -o, --out FILE     output .skp (default: <library-dir>/catalogue.skp)
+  -g, --gap MM       spacing between parts, default 20
+  -s, --sketchup VER SketchUp version, default 2025
+      --scheme NAME  size-code scheme: dn (stainless press) or thread
+      --no-pipes     omit the parametric pipe row
+      --pipe-length MM  pipe length shown in the catalogue, default 300
+USAGE
+}
+
+LIB=""
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -o|--out)       OUT="$2"; shift 2 ;;
+    -g|--gap)       GAP="$2"; shift 2 ;;
+    --no-pipes)     PIPES=0; shift ;;
+    --scheme)       SCHEME="$2"; shift 2 ;;
+    --pipe-length)  PIPE_LENGTH="$2"; shift 2 ;;
+    -s|--sketchup)  SU_VER="$2"; shift 2 ;;
+    -h|--help)      usage; exit 0 ;;
+    *)              LIB="$1"; shift ;;
+  esac
+done
+[[ -d "${LIB:-}" ]] || { usage; exit 2; }
+LIB="$(cd "$LIB" && pwd)"
+OUT="${OUT:-$LIB/catalogue.skp}"
+
+rm -f "$SHARE/job.json" "$SHARE/job.done" "$SHARE/job.log"
+
+SCHEME="$SCHEME" PIPES="$PIPES" PIPE_LENGTH="$PIPE_LENGTH" PIPE_SIZES="$PIPE_SIZES" \
+PIPE_WALLS="$PIPE_WALLS" \
+python3 - "$LIB" "$OUT" "$GAP" "$SHARE/job.json" <<'PYEOF'
+import glob, json, os, sys
+
+lib, out, gap, jobfile = sys.argv[1], sys.argv[2], float(sys.argv[3]), sys.argv[4]
+
+
+MISC = 99   # sorts last: codes that fit no scheme
+
+THREAD_LABELS = {2: '1/4"', 3: '3/8"', 4: '1/2"', 5: '3/4"', 6: '1"',
+                 7: '1 1/4"', 8: '1 1/2"', 9: '2"'}
+
+
+def primary_dn(code):
+    """Nominal bore from a stainless press-fit size code.
+
+    Families disagree: 001204 is DN12 plus a thread code, 000015 is a plug at
+    DN15, and 150760 / 302222 put the diameter in the first two digits.
+    """
+    if not code.isdigit():
+        return MISC
+    if len(code) == 6:
+        head = int(code[:4])
+        if head == 0:
+            return int(code[4:])
+        return head if head <= 100 else int(code[:2])
+    return int(code[:2])
+
+
+def primary_thread(code):
+    """Thread size from a threaded-fitting code.
+
+    Codes are 2-digit groups per port (0004 = 1/2", 040504 = 1/2x3/4x1/2);
+    the first non-zero group is the governing size. Odd-length codes such as
+    04010 carry an offset after the size, so only the head is meaningful.
+    """
+    if not code or not code.isdigit():
+        return MISC
+    if len(code) % 2 == 0:
+        for i in range(0, len(code), 2):
+            value = int(code[i:i + 2])
+            if value:
+                return value
+        return MISC
+    return int(code[:2])
+
+
+SCHEME = os.environ.get('SCHEME', 'dn')
+primary = primary_thread if SCHEME == 'thread' else primary_dn
+
+
+def column_label(value):
+    if value == MISC:
+        return 'misc'
+    if SCHEME == 'thread':
+        return THREAD_LABELS.get(value, 'D%d' % value)
+    return str(value)
+
+
+cells, rows, cols = [], {}, set()
+# Row 0 is reserved for pipes, so the catalogue reads pipe-then-fittings.
+PIPE_ROW = 0
+row_offset = 1 if os.environ.get('PIPES', '1') != '0' else 0
+for part in sorted(os.listdir(lib)):
+    meta_path = os.path.join(lib, part, 'part.json')
+    if not os.path.exists(meta_path):
+        continue
+    with open(meta_path, encoding='utf-8') as fh:
+        meta = json.load(fh)
+    models = sorted(glob.glob(os.path.join(lib, part, 'skp', '*.skp')))
+    if not models:
+        continue
+    row = len(rows) + row_offset
+    rows[part] = row
+    for path in models:
+        code = os.path.basename(path)[:-4][len(part) + 1:]
+        col = primary(code)
+        cols.add(col)
+        cells.append({'path': path, 'row': row, 'col': col, 'label': code})
+
+pipes = []
+if os.environ.get('PIPES', '1') != '0':
+    walls = dict(p.split(':') for p in os.environ['PIPE_WALLS'].split(','))
+    for dn in os.environ['PIPE_SIZES'].split(','):
+        dn = dn.strip()
+        wall = float(walls.get(dn, 1.0))
+        pipes.append({
+            'dn': float(dn), 'wall': wall,
+            'length': float(os.environ['PIPE_LENGTH']), 'segments': 24,
+            'code': 'VTi.900.304.%s' % dn.zfill(3), 'name': 'Pipe DN%s' % dn,
+            'label': 'DN%s %sx%s' % (dn, dn, wall),
+            'row': PIPE_ROW, 'col': int(dn),
+        })
+        cols.add(int(dn))
+
+job = {
+    'mode': 'sheet', 'out': out, 'gap': gap, 'cells': cells, 'pipes': pipes,
+    'rows': ([{'index': PIPE_ROW,
+               'label': 'VTi.900.304  Труба из нержавеющей стали'}] if pipes else []) +
+            [{'index': i, 'label': '%s  %s' % (p, ' '.join(
+                json.load(open(os.path.join(lib, p, 'part.json'), encoding='utf-8'))['name'].split()))}
+             for p, i in rows.items()],
+    'cols': [{'index': c, 'label': column_label(c)} for c in sorted(cols)],
+}
+json.dump(job, open(jobfile, 'w'), ensure_ascii=False)
+print('sheet: %d components + %d pipes, %d rows x %d columns'
+      % (len(cells), len(pipes), len(rows) + (1 if pipes else 0), len(cols)))
+PYEOF
+
+PLUGINS="$HOME/Library/Application Support/SketchUp $SU_VER/SketchUp/Plugins"
+cp "$SHARE/stp2skp_batch.rb" "$PLUGINS/stp2skp_batch.rb"
+SU_APP="/Applications/SketchUp $SU_VER/SketchUp.app"
+SEED="$SHARE/seed.skp"
+if pgrep -f "$SU_APP/Contents/MacOS/SketchUp" >/dev/null; then
+  echo "SketchUp is already running - quit it first" >&2; exit 1
+fi
+open -a "$SU_APP" "$SEED"
+
+echo -n "building sheet"
+for _ in $(seq 1 1800); do
+  [[ -f "$SHARE/job.done" ]] && break
+  sleep 1; echo -n "."
+done
+echo
+cat "$SHARE/job.log" 2>/dev/null
+osascript -e "tell application \"SketchUp\" to quit" >/dev/null 2>&1 || true
+for _ in $(seq 1 10); do
+  pgrep -f "$SU_APP/Contents/MacOS/SketchUp" >/dev/null || break
+  sleep 1
+done
+pgrep -f "$SU_APP/Contents/MacOS/SketchUp" >/dev/null && \
+  pkill -9 -f "$SU_APP/Contents/MacOS/SketchUp" || true
+[[ -f "$OUT" ]] && ls -la "$OUT" | awk '{print "wrote", $NF, $5, "bytes"}'

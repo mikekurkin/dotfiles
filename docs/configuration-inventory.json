@@ -1,0 +1,882 @@
+[
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": ".chezmoiignore",
+    "bytes": 8
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": ".chezmoiversion",
+    "bytes": 7
+  },
+  {
+    "source": "Library/Application Support/Code/User/keybindings.json",
+    "managed": "Library/Application Support/Code/User/keybindings.json",
+    "bytes": 11604
+  },
+  {
+    "source": "Library/Application Support/Code/User/settings.json",
+    "managed": "Library/Application Support/Code/User/settings.json",
+    "bytes": 7387
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "Library/Keyboard Layouts/Punctual.bundle/Contents/Info.plist",
+    "bytes": 997
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "Library/Keyboard Layouts/Punctual.bundle/Contents/Resources/English - Punctual.icns",
+    "bytes": 4025
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "Library/Keyboard Layouts/Punctual.bundle/Contents/Resources/English - Punctual.keylayout",
+    "bytes": 62667
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "Library/Keyboard Layouts/Punctual.bundle/Contents/Resources/Russian - Punctual.icns",
+    "bytes": 2907
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "Library/Keyboard Layouts/Punctual.bundle/Contents/Resources/Russian - Punctual.keylayout",
+    "bytes": 56898
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "Library/Keyboard Layouts/Punctual.bundle/Contents/Resources/en.lproj/InfoPlist.strings",
+    "bytes": 182
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "Library/Keyboard Layouts/Punctual.bundle/Contents/version.plist",
+    "bytes": 331
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "Library/LaunchAgents/net.kurkin.dotfiles.maintenance.plist.tmpl",
+    "bytes": 1085
+  },
+  {
+    "source": ".aerospace.toml",
+    "managed": "dot_aerospace.toml",
+    "bytes": 15219
+  },
+  {
+    "source": ".agents/skills/coach-skill/SKILL.md",
+    "managed": "dot_agents/skills/coach-skill/SKILL.md",
+    "bytes": 25474
+  },
+  {
+    "source": ".agents/skills/coach-skill/reference/assessment.md",
+    "managed": "dot_agents/skills/coach-skill/reference/assessment.md",
+    "bytes": 7185
+  },
+  {
+    "source": ".agents/skills/coach-skill/reference/load-management.md",
+    "managed": "dot_agents/skills/coach-skill/reference/load-management.md",
+    "bytes": 5372
+  },
+  {
+    "source": ".agents/skills/coach-skill/reference/periodization.md",
+    "managed": "dot_agents/skills/coach-skill/reference/periodization.md",
+    "bytes": 8358
+  },
+  {
+    "source": ".agents/skills/coach-skill/reference/queries.md",
+    "managed": "dot_agents/skills/coach-skill/reference/queries.md",
+    "bytes": 5916
+  },
+  {
+    "source": ".agents/skills/coach-skill/reference/race-day.md",
+    "managed": "dot_agents/skills/coach-skill/reference/race-day.md",
+    "bytes": 5848
+  },
+  {
+    "source": ".agents/skills/coach-skill/reference/runalyze.md",
+    "managed": "dot_agents/skills/coach-skill/reference/runalyze.md",
+    "bytes": 8902
+  },
+  {
+    "source": ".agents/skills/coach-skill/reference/workouts.md",
+    "managed": "dot_agents/skills/coach-skill/reference/workouts.md",
+    "bytes": 11035
+  },
+  {
+    "source": ".agents/skills/coach-skill/reference/zones.md",
+    "managed": "dot_agents/skills/coach-skill/reference/zones.md",
+    "bytes": 5787
+  },
+  {
+    "source": ".agents/skills/find-skills/SKILL.md",
+    "managed": "dot_agents/skills/find-skills/SKILL.md",
+    "bytes": 5519
+  },
+  {
+    "source": ".agents/skills/graphify/SKILL.md",
+    "managed": "dot_agents/skills/graphify/SKILL.md",
+    "bytes": 58097
+  },
+  {
+    "source": ".agents/skills/grill-me/SKILL.md",
+    "managed": "dot_agents/skills/grill-me/SKILL.md",
+    "bytes": 147
+  },
+  {
+    "source": ".agents/skills/grill-me/agents/openai.yaml",
+    "managed": "dot_agents/skills/grill-me/agents/openai.yaml",
+    "bytes": 137
+  },
+  {
+    "source": ".agents/skills/interior-design-expert/CHANGELOG.md",
+    "managed": "dot_agents/skills/interior-design-expert/CHANGELOG.md",
+    "bytes": 1742
+  },
+  {
+    "source": ".agents/skills/interior-design-expert/SKILL.md",
+    "managed": "dot_agents/skills/interior-design-expert/SKILL.md",
+    "bytes": 7834
+  },
+  {
+    "source": ".agents/skills/interior-design-expert/references/color-science.md",
+    "managed": "dot_agents/skills/interior-design-expert/references/color-science.md",
+    "bytes": 3415
+  },
+  {
+    "source": ".agents/skills/interior-design-expert/references/lighting-design.md",
+    "managed": "dot_agents/skills/interior-design-expert/references/lighting-design.md",
+    "bytes": 3084
+  },
+  {
+    "source": ".agents/skills/interior-design-expert/references/space-planning.md",
+    "managed": "dot_agents/skills/interior-design-expert/references/space-planning.md",
+    "bytes": 7004
+  },
+  {
+    "source": ".agents/skills/interior-design-expert/references/style-guide.md",
+    "managed": "dot_agents/skills/interior-design-expert/references/style-guide.md",
+    "bytes": 6680
+  },
+  {
+    "source": ".agents/skills/model-convert/SKILL.md",
+    "managed": "dot_agents/skills/model-convert/SKILL.md",
+    "bytes": 8143
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_agents/skills/model-convert/harness/README.md",
+    "bytes": 1528
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_agents/skills/model-convert/harness/executable_bom",
+    "bytes": 2099
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_agents/skills/model-convert/harness/executable_convert",
+    "bytes": 8342
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_agents/skills/model-convert/harness/executable_describe",
+    "bytes": 2086
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_agents/skills/model-convert/harness/executable_sheet",
+    "bytes": 8445
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_agents/skills/model-convert/harness/fetch.py",
+    "bytes": 4328
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_agents/skills/model-convert/harness/rail.rb",
+    "bytes": 8199
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_agents/skills/model-convert/harness/reader.py",
+    "bytes": 9790
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_agents/skills/model-convert/harness/sketchup_batch.rb",
+    "bytes": 72685
+  },
+  {
+    "source": ".agents/skills/visual-plan/SKILL.md",
+    "managed": "dot_agents/skills/visual-plan/SKILL.md",
+    "bytes": 29309
+  },
+  {
+    "source": ".agents/skills/visual-plan/agent-native-skill.json",
+    "managed": "dot_agents/skills/visual-plan/agent-native-skill.json",
+    "bytes": 434
+  },
+  {
+    "source": ".agents/skills/visual-plan/references/canvas.md",
+    "managed": "dot_agents/skills/visual-plan/references/canvas.md",
+    "bytes": 8745
+  },
+  {
+    "source": ".agents/skills/visual-plan/references/connection.md",
+    "managed": "dot_agents/skills/visual-plan/references/connection.md",
+    "bytes": 2980
+  },
+  {
+    "source": ".agents/skills/visual-plan/references/document-quality.md",
+    "managed": "dot_agents/skills/visual-plan/references/document-quality.md",
+    "bytes": 12638
+  },
+  {
+    "source": ".agents/skills/visual-plan/references/exemplar.md",
+    "managed": "dot_agents/skills/visual-plan/references/exemplar.md",
+    "bytes": 4028
+  },
+  {
+    "source": ".agents/skills/visual-plan/references/local-files.md",
+    "managed": "dot_agents/skills/visual-plan/references/local-files.md",
+    "bytes": 6099
+  },
+  {
+    "source": ".agents/skills/visual-plan/references/wireframe.md",
+    "managed": "dot_agents/skills/visual-plan/references/wireframe.md",
+    "bytes": 19062
+  },
+  {
+    "source": ".agents/skills/visual-recap/SKILL.md",
+    "managed": "dot_agents/skills/visual-recap/SKILL.md",
+    "bytes": 34423
+  },
+  {
+    "source": ".agents/skills/visual-recap/agent-native-skill.json",
+    "managed": "dot_agents/skills/visual-recap/agent-native-skill.json",
+    "bytes": 437
+  },
+  {
+    "source": ".agents/skills/visual-recap/references/connection.md",
+    "managed": "dot_agents/skills/visual-recap/references/connection.md",
+    "bytes": 2980
+  },
+  {
+    "source": ".agents/skills/visual-recap/references/local-files.md",
+    "managed": "dot_agents/skills/visual-recap/references/local-files.md",
+    "bytes": 6099
+  },
+  {
+    "source": ".agents/skills/visual-recap/references/wireframe.md",
+    "managed": "dot_agents/skills/visual-recap/references/wireframe.md",
+    "bytes": 19062
+  },
+  {
+    "source": ".agents/skills/visualize-repo/SKILL.md",
+    "managed": "dot_agents/skills/visualize-repo/SKILL.md",
+    "bytes": 4914
+  },
+  {
+    "source": ".agents/skills/visualize-repo/agent-native-skill.json",
+    "managed": "dot_agents/skills/visualize-repo/agent-native-skill.json",
+    "bytes": 443
+  },
+  {
+    "source": "dotfiles/aliases",
+    "managed": "dot_aliases",
+    "bytes": 2099
+  },
+  {
+    "source": ".claude/commands/visual-plan.md",
+    "managed": "dot_claude/commands/visual-plan.md",
+    "bytes": 252
+  },
+  {
+    "source": ".claude/commands/visual-recap.md",
+    "managed": "dot_claude/commands/visual-recap.md",
+    "bytes": 247
+  },
+  {
+    "source": ".claude/commands/visualize-repo.md",
+    "managed": "dot_claude/commands/visualize-repo.md",
+    "bytes": 248
+  },
+  {
+    "source": ".claude/CLAUDE.md",
+    "managed": "dot_claude/private_CLAUDE.md",
+    "bytes": 226
+  },
+  {
+    "source": ".claude/settings.json",
+    "managed": "dot_claude/private_settings.json",
+    "bytes": 695
+  },
+  {
+    "source": ".claude/skills/coach-skill/SKILL.md",
+    "managed": "dot_claude/skills/coach-skill/SKILL.md",
+    "bytes": 25487
+  },
+  {
+    "source": ".claude/skills/coach-skill/reference/assessment.md",
+    "managed": "dot_claude/skills/coach-skill/reference/assessment.md",
+    "bytes": 7185
+  },
+  {
+    "source": ".claude/skills/coach-skill/reference/load-management.md",
+    "managed": "dot_claude/skills/coach-skill/reference/load-management.md",
+    "bytes": 5372
+  },
+  {
+    "source": ".claude/skills/coach-skill/reference/periodization.md",
+    "managed": "dot_claude/skills/coach-skill/reference/periodization.md",
+    "bytes": 8358
+  },
+  {
+    "source": ".claude/skills/coach-skill/reference/queries.md",
+    "managed": "dot_claude/skills/coach-skill/reference/queries.md",
+    "bytes": 5916
+  },
+  {
+    "source": ".claude/skills/coach-skill/reference/race-day.md",
+    "managed": "dot_claude/skills/coach-skill/reference/race-day.md",
+    "bytes": 5848
+  },
+  {
+    "source": ".claude/skills/coach-skill/reference/runalyze.md",
+    "managed": "dot_claude/skills/coach-skill/reference/runalyze.md",
+    "bytes": 8902
+  },
+  {
+    "source": ".claude/skills/coach-skill/reference/workouts.md",
+    "managed": "dot_claude/skills/coach-skill/reference/workouts.md",
+    "bytes": 11035
+  },
+  {
+    "source": ".claude/skills/coach-skill/reference/zones.md",
+    "managed": "dot_claude/skills/coach-skill/reference/zones.md",
+    "bytes": 5787
+  },
+  {
+    "source": ".claude/skills/graphify/SKILL.md",
+    "managed": "dot_claude/skills/graphify/SKILL.md",
+    "bytes": 58117
+  },
+  {
+    "source": ".claude/skills/interior-design-expert/CHANGELOG.md",
+    "managed": "dot_claude/skills/interior-design-expert/CHANGELOG.md",
+    "bytes": 1742
+  },
+  {
+    "source": ".claude/skills/interior-design-expert/SKILL.md",
+    "managed": "dot_claude/skills/interior-design-expert/SKILL.md",
+    "bytes": 7834
+  },
+  {
+    "source": ".claude/skills/interior-design-expert/references/color-science.md",
+    "managed": "dot_claude/skills/interior-design-expert/references/color-science.md",
+    "bytes": 3415
+  },
+  {
+    "source": ".claude/skills/interior-design-expert/references/lighting-design.md",
+    "managed": "dot_claude/skills/interior-design-expert/references/lighting-design.md",
+    "bytes": 3084
+  },
+  {
+    "source": ".claude/skills/interior-design-expert/references/space-planning.md",
+    "managed": "dot_claude/skills/interior-design-expert/references/space-planning.md",
+    "bytes": 7004
+  },
+  {
+    "source": ".claude/skills/interior-design-expert/references/style-guide.md",
+    "managed": "dot_claude/skills/interior-design-expert/references/style-guide.md",
+    "bytes": 6680
+  },
+  {
+    "source": ".claude/skills/model-convert/SKILL.md",
+    "managed": "dot_claude/skills/model-convert/SKILL.md",
+    "bytes": 8143
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_claude/skills/model-convert/harness/README.md",
+    "bytes": 1528
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_claude/skills/model-convert/harness/executable_bom",
+    "bytes": 2099
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_claude/skills/model-convert/harness/executable_convert",
+    "bytes": 8342
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_claude/skills/model-convert/harness/executable_describe",
+    "bytes": 2086
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_claude/skills/model-convert/harness/executable_sheet",
+    "bytes": 8445
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_claude/skills/model-convert/harness/fetch.py",
+    "bytes": 4328
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_claude/skills/model-convert/harness/rail.rb",
+    "bytes": 8199
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_claude/skills/model-convert/harness/reader.py",
+    "bytes": 9790
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_claude/skills/model-convert/harness/sketchup_batch.rb",
+    "bytes": 72685
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_claude/skills/symlink_find-skills",
+    "bytes": 33
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_claude/skills/symlink_grill-me",
+    "bytes": 30
+  },
+  {
+    "source": ".claude/skills/visual-plan/SKILL.md",
+    "managed": "dot_claude/skills/visual-plan/SKILL.md",
+    "bytes": 29321
+  },
+  {
+    "source": ".claude/skills/visual-plan/agent-native-skill.json",
+    "managed": "dot_claude/skills/visual-plan/agent-native-skill.json",
+    "bytes": 434
+  },
+  {
+    "source": ".claude/skills/visual-plan/references/canvas.md",
+    "managed": "dot_claude/skills/visual-plan/references/canvas.md",
+    "bytes": 8745
+  },
+  {
+    "source": ".claude/skills/visual-plan/references/connection.md",
+    "managed": "dot_claude/skills/visual-plan/references/connection.md",
+    "bytes": 2980
+  },
+  {
+    "source": ".claude/skills/visual-plan/references/document-quality.md",
+    "managed": "dot_claude/skills/visual-plan/references/document-quality.md",
+    "bytes": 12638
+  },
+  {
+    "source": ".claude/skills/visual-plan/references/exemplar.md",
+    "managed": "dot_claude/skills/visual-plan/references/exemplar.md",
+    "bytes": 4028
+  },
+  {
+    "source": ".claude/skills/visual-plan/references/local-files.md",
+    "managed": "dot_claude/skills/visual-plan/references/local-files.md",
+    "bytes": 6099
+  },
+  {
+    "source": ".claude/skills/visual-plan/references/wireframe.md",
+    "managed": "dot_claude/skills/visual-plan/references/wireframe.md",
+    "bytes": 19062
+  },
+  {
+    "source": ".claude/skills/visual-recap/SKILL.md",
+    "managed": "dot_claude/skills/visual-recap/SKILL.md",
+    "bytes": 34423
+  },
+  {
+    "source": ".claude/skills/visual-recap/agent-native-skill.json",
+    "managed": "dot_claude/skills/visual-recap/agent-native-skill.json",
+    "bytes": 437
+  },
+  {
+    "source": ".claude/skills/visual-recap/references/connection.md",
+    "managed": "dot_claude/skills/visual-recap/references/connection.md",
+    "bytes": 2980
+  },
+  {
+    "source": ".claude/skills/visual-recap/references/local-files.md",
+    "managed": "dot_claude/skills/visual-recap/references/local-files.md",
+    "bytes": 6099
+  },
+  {
+    "source": ".claude/skills/visual-recap/references/wireframe.md",
+    "managed": "dot_claude/skills/visual-recap/references/wireframe.md",
+    "bytes": 19062
+  },
+  {
+    "source": ".claude/skills/visualize-repo/SKILL.md",
+    "managed": "dot_claude/skills/visualize-repo/SKILL.md",
+    "bytes": 4914
+  },
+  {
+    "source": ".claude/skills/visualize-repo/agent-native-skill.json",
+    "managed": "dot_claude/skills/visualize-repo/agent-native-skill.json",
+    "bytes": 443
+  },
+  {
+    "source": ".codex/config.toml",
+    "managed": "dot_codex/private_config.toml",
+    "bytes": 837
+  },
+  {
+    "source": ".codex/skills/visual-plan/SKILL.md",
+    "managed": "dot_codex/skills/visual-plan/SKILL.md",
+    "bytes": 29321
+  },
+  {
+    "source": ".codex/skills/visual-plan/agent-native-skill.json",
+    "managed": "dot_codex/skills/visual-plan/agent-native-skill.json",
+    "bytes": 434
+  },
+  {
+    "source": ".codex/skills/visual-plan/references/canvas.md",
+    "managed": "dot_codex/skills/visual-plan/references/canvas.md",
+    "bytes": 8745
+  },
+  {
+    "source": ".codex/skills/visual-plan/references/connection.md",
+    "managed": "dot_codex/skills/visual-plan/references/connection.md",
+    "bytes": 2980
+  },
+  {
+    "source": ".codex/skills/visual-plan/references/document-quality.md",
+    "managed": "dot_codex/skills/visual-plan/references/document-quality.md",
+    "bytes": 12638
+  },
+  {
+    "source": ".codex/skills/visual-plan/references/exemplar.md",
+    "managed": "dot_codex/skills/visual-plan/references/exemplar.md",
+    "bytes": 4028
+  },
+  {
+    "source": ".codex/skills/visual-plan/references/local-files.md",
+    "managed": "dot_codex/skills/visual-plan/references/local-files.md",
+    "bytes": 6099
+  },
+  {
+    "source": ".codex/skills/visual-plan/references/wireframe.md",
+    "managed": "dot_codex/skills/visual-plan/references/wireframe.md",
+    "bytes": 19062
+  },
+  {
+    "source": ".codex/skills/visual-recap/SKILL.md",
+    "managed": "dot_codex/skills/visual-recap/SKILL.md",
+    "bytes": 34423
+  },
+  {
+    "source": ".codex/skills/visual-recap/agent-native-skill.json",
+    "managed": "dot_codex/skills/visual-recap/agent-native-skill.json",
+    "bytes": 437
+  },
+  {
+    "source": ".codex/skills/visual-recap/references/connection.md",
+    "managed": "dot_codex/skills/visual-recap/references/connection.md",
+    "bytes": 2980
+  },
+  {
+    "source": ".codex/skills/visual-recap/references/local-files.md",
+    "managed": "dot_codex/skills/visual-recap/references/local-files.md",
+    "bytes": 6099
+  },
+  {
+    "source": ".codex/skills/visual-recap/references/wireframe.md",
+    "managed": "dot_codex/skills/visual-recap/references/wireframe.md",
+    "bytes": 19062
+  },
+  {
+    "source": ".codex/skills/visualize-repo/SKILL.md",
+    "managed": "dot_codex/skills/visualize-repo/SKILL.md",
+    "bytes": 4914
+  },
+  {
+    "source": ".codex/skills/visualize-repo/agent-native-skill.json",
+    "managed": "dot_codex/skills/visualize-repo/agent-native-skill.json",
+    "bytes": 443
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_config/dotfiles/optional-app-preferences/private_com.ameba.SwiftBar.json.tmpl",
+    "bytes": 152
+  },
+  {
+    "source": "com.colliderli.iina",
+    "managed": "dot_config/dotfiles/app-preferences/private_com.colliderli.iina.json.tmpl",
+    "bytes": 1320
+  },
+  {
+    "source": "com.googlecode.iterm2",
+    "managed": "dot_config/dotfiles/app-preferences/private_com.googlecode.iterm2.json.tmpl",
+    "bytes": 49845
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_config/dotfiles/packages.json",
+    "bytes": 11782
+  },
+  {
+    "source": "selected current macOS preferences",
+    "managed": "dot_config/dotfiles/preferences.json.tmpl",
+    "bytes": 18476
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_config/dotfiles/uv-tools.txt",
+    "bytes": 33
+  },
+  {
+    "source": "installed VS Code extensions",
+    "managed": "dot_config/dotfiles/vscode-extensions.txt",
+    "bytes": 1135
+  },
+  {
+    "source": "installed Zed extensions",
+    "managed": "dot_config/dotfiles/zed-extensions.txt",
+    "bytes": 75
+  },
+  {
+    "source": ".config/karabiner/assets/complex_modifications/1541513649.json",
+    "managed": "dot_config/karabiner/assets/complex_modifications/1541513649.json",
+    "bytes": 2167
+  },
+  {
+    "source": ".config/karabiner/assets/complex_modifications/1541514137.json",
+    "managed": "dot_config/karabiner/assets/complex_modifications/1541514137.json",
+    "bytes": 3077
+  },
+  {
+    "source": ".config/karabiner/assets/complex_modifications/1541514592.json",
+    "managed": "dot_config/karabiner/assets/complex_modifications/1541514592.json",
+    "bytes": 6700
+  },
+  {
+    "source": ".config/karabiner/assets/complex_modifications/1541517218.json",
+    "managed": "dot_config/karabiner/assets/complex_modifications/1541517218.json",
+    "bytes": 2412
+  },
+  {
+    "source": ".config/karabiner/assets/complex_modifications/1553720979.json",
+    "managed": "dot_config/karabiner/assets/complex_modifications/1553720979.json",
+    "bytes": 614
+  },
+  {
+    "source": ".config/karabiner/assets/complex_modifications/1605775162.json",
+    "managed": "dot_config/karabiner/assets/complex_modifications/1605775162.json",
+    "bytes": 1881
+  },
+  {
+    "source": ".config/karabiner/assets/complex_modifications/1758978583.json",
+    "managed": "dot_config/karabiner/assets/complex_modifications/1758978583.json",
+    "bytes": 641
+  },
+  {
+    "source": ".config/karabiner/assets/complex_modifications/1758978651.json",
+    "managed": "dot_config/karabiner/assets/complex_modifications/1758978651.json",
+    "bytes": 650
+  },
+  {
+    "source": ".config/karabiner/assets/complex_modifications/caps.json",
+    "managed": "dot_config/karabiner/assets/complex_modifications/caps.json",
+    "bytes": 2453
+  },
+  {
+    "source": ".config/karabiner/assets/complex_modifications/cmd_rdp.json",
+    "managed": "dot_config/karabiner/assets/complex_modifications/cmd_rdp.json",
+    "bytes": 755
+  },
+  {
+    "source": ".config/karabiner/assets/complex_modifications/ctrl.json",
+    "managed": "dot_config/karabiner/assets/complex_modifications/ctrl.json",
+    "bytes": 2110
+  },
+  {
+    "source": ".config/karabiner/assets/complex_modifications/fn.json",
+    "managed": "dot_config/karabiner/assets/complex_modifications/fn.json",
+    "bytes": 610
+  },
+  {
+    "source": ".config/karabiner/assets/complex_modifications/fusion_grave.json",
+    "managed": "dot_config/karabiner/assets/complex_modifications/fusion_grave.json",
+    "bytes": 1766
+  },
+  {
+    "source": ".config/karabiner/karabiner.json",
+    "managed": "dot_config/karabiner/private_karabiner.json",
+    "bytes": 10337
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_config/mise/config.toml",
+    "bytes": 381
+  },
+  {
+    "source": ".config/zed/settings.json",
+    "managed": "dot_config/zed/settings.json",
+    "bytes": 1308
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_environment",
+    "bytes": 501
+  },
+  {
+    "source": "dotfiles/functions",
+    "managed": "dot_functions",
+    "bytes": 1958
+  },
+  {
+    "source": ".gitconfig",
+    "managed": "dot_gitconfig.tmpl",
+    "bytes": 1242
+  },
+  {
+    "source": "dotfiles/gitignore_macos",
+    "managed": "dot_gitignore_global",
+    "bytes": 1165
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_homebrewrc",
+    "bytes": 165
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_local/bin/executable_dotfiles-tmux-status",
+    "bytes": 234
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_local/bin/executable_fasd",
+    "bytes": 19871
+  },
+  {
+    "source": ".local/bin/stp2skp",
+    "managed": "dot_local/bin/executable_stp2skp",
+    "bytes": 7281
+  },
+  {
+    "source": ".local/bin/stp2skp-7480",
+    "managed": "dot_local/bin/executable_stp2skp-7480",
+    "bytes": 7941
+  },
+  {
+    "source": ".local/bin/stp2skp-bom",
+    "managed": "dot_local/bin/executable_stp2skp-bom",
+    "bytes": 2006
+  },
+  {
+    "source": ".local/bin/stp2skp-describe",
+    "managed": "dot_local/bin/executable_stp2skp-describe",
+    "bytes": 1993
+  },
+  {
+    "source": ".local/bin/stp2skp-pipes",
+    "managed": "dot_local/bin/executable_stp2skp-pipes",
+    "bytes": 3219
+  },
+  {
+    "source": ".local/bin/stp2skp-sheet",
+    "managed": "dot_local/bin/executable_stp2skp-sheet",
+    "bytes": 6146
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_local/share/dotfiles/__pycache__/executable_maintenance.cpython-310.pyc",
+    "bytes": 4219
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_local/share/dotfiles/__pycache__/executable_maintenance.cpython-314.pyc",
+    "bytes": 8088
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_local/share/dotfiles/executable_maintenance.py",
+    "bytes": 4362
+  },
+  {
+    "source": ".local/share/stp2skp/mupro_rail.rb",
+    "managed": "dot_local/share/stp2skp/mupro_rail.rb",
+    "bytes": 8199
+  },
+  {
+    "source": ".local/share/stp2skp/seed.skp",
+    "managed": "dot_local/share/stp2skp/seed.skp",
+    "bytes": 7565
+  },
+  {
+    "source": ".local/share/stp2skp/stp2skp_batch.rb",
+    "managed": "dot_local/share/stp2skp/stp2skp_batch.rb",
+    "bytes": 71778
+  },
+  {
+    "source": ".local/share/stp2skp/stp_to_mesh.py",
+    "managed": "dot_local/share/stp2skp/stp_to_mesh.py",
+    "bytes": 8070
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_local/share/swiftbar/executable_ejector.5s.sh",
+    "bytes": 4952
+  },
+  {
+    "source": "dotfiles/p10k.zsh",
+    "managed": "dot_p10k.zsh",
+    "bytes": 81458
+  },
+  {
+    "source": ".stCommitMsg",
+    "managed": "dot_stCommitMsg",
+    "bytes": 1
+  },
+  {
+    "source": ".tmux.conf",
+    "managed": "dot_tmux.conf.tmpl",
+    "bytes": 3874
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_vim/autoload/plug.vim",
+    "bytes": 82784
+  },
+  {
+    "source": "dotfiles/vim/ultisnips/latex.snippets",
+    "managed": "dot_vim/ultisnips/latex.snippets",
+    "bytes": 10250
+  },
+  {
+    "source": "dotfiles/vim/ultisnips/markdown.snippets",
+    "managed": "dot_vim/ultisnips/markdown.snippets",
+    "bytes": 5655
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_vim/vimrc",
+    "bytes": 12582
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_zprofile",
+    "bytes": 327
+  },
+  {
+    "source": "migration-generated or selectively captured from current home",
+    "managed": "dot_zshrc",
+    "bytes": 2276
+  }
+]

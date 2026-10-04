@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+export PATH="/opt/homebrew/bin:$HOME/.local/bin:$HOME/.local/share/mise/shims:/usr/bin:/bin"
+command -v mise >/dev/null || exit 0
+exec mise exec --cd "$HOME" -- claude-auto-retry-tmux-status "$@"

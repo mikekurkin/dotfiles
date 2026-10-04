@@ -1,0 +1,13 @@
+{
+  "potential_secret_files_excluded": [],
+  "retired_tools": [
+    "fish",
+    "ghostty",
+    "cursor",
+    "alfred",
+    "raycast",
+    "sublime-text",
+    "textmate",
+    "typora"
+  ]
+}

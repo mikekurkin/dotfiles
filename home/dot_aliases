@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+
+# folder navigation
+alias ~='cd ~'
+alias -- -='cd -'
+alias ..='cd ..'
+alias -g ...=../..
+alias -g ....=../../..
+alias -g .....=../../../..
+alias -g ......=../../../../..
+
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+
+alias l='ls -lah'
+alias la='ls -lAh'
+alias ll='ls -lh'
+alias ls='ls -G'
+alias lsa='ls -lah'
+alias md='mkdir -p'
+alias rd=rmdir
+alias _='sudo '
+
+alias afind='ack -il'
+(( $+functions[omz_history] )) && alias history=omz_history
+alias run-help=man
+alias which-command=whence
+
+alias doco='docker-compose'
+alias doterm='docker exec -it -e "TERM=xterm-256color"'
+
+# fasd
+alias a='fasd -a'
+alias d='fasd -d'
+alias f='fasd -f'
+alias j=zz
+alias op='a -e open'
+alias s='fasd -si'
+alias sd='fasd -sid'
+alias sf='fasd -sif'
+alias v='f -e "$EDITOR"'
+alias z='fasd_cd -d'
+alias zz='fasd_cd -d -i'
+
+# http://www.zzapper.co.uk/zshtips.html
+#-------- Global Alias {{{
+#------------------------------------------------------
+# Automatically Expanding Global Aliases (Space key to expand)
+# references: http://blog.patshead.com/2012/11/automatically-expaning-zsh-global-aliases---simplified.html
+globalias() {
+  if [[ $LBUFFER =~ '[A-Z0-9]+$' ]]; then
+    zle _expand_alias
+    zle expand-word
+  fi
+  zle self-insert
+}
+zle -N globalias
+bindkey " " globalias                 # space key to expand globalalias
+# bindkey "^ " magic-space            # control-space to bypass completion
+# bindkey "^[[Z" magic-space            # shift-tab to bypass completion
+# bindkey -M isearch " " magic-space    # normal space during searches
+
+alias -g C='| wc -l'
+alias -g CA='2>&1 | cat -A'
+alias -g G='| grep'
+alias -g H='| head'
+alias -g L='| less'
+alias -g LL='2>&1 | less'
+alias -g M='| most'
+alias -g ND='*()'
+alias -g NE='2> /dev/null'
+alias -g NF='*(.om[1])'
+alias -g NO='&>|/dev/null'
+alias -g NUL='> /dev/null 2>&1'
+alias -g P='2>&1 | $PAGER'
+alias -g T='| tail'
+alias -g VV='| vim -R -'
+
+alias ta="tmux attach"
+alias tls="tmux ls"
+alias tn="tmux new -s"
+alias tk="tmux kill-session -t"

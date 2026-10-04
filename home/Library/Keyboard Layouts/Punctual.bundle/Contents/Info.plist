@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>net.kurkin.keyboardlayout.punctual</string>
+	<key>CFBundleName</key>
+	<string>Punctual</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>KLInfo_English - Punctual</key>
+	<dict>
+		<key>TICapsLockLanguageSwitchCapable</key>
+		<false/>
+		<key>TISInputSourceID</key>
+		<string>net.kurkin.keyboardlayout.punctual.english-punctual</string>
+		<key>TISIntendedLanguage</key>
+		<string>en-GB</string>
+		<key>TISIconIsTemplate</key>
+		<true/>
+	</dict>
+	<key>KLInfo_Russian - Punctual</key>
+	<dict>
+		<key>TICapsLockLanguageSwitchCapable</key>
+		<true/>
+		<key>TISInputSourceID</key>
+		<string>net.kurkin.keyboardlayout.punctual.russian-punctual</string>
+		<key>TISIntendedLanguage</key>
+		<string>ru-RU</string>
+		<key>TISCapsLockIsSwitch</key>
+		<true/>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+# stp2skp-pipes - generate length-parametric stainless pipe components.
+#
+# OD equals DN, verified against the fittings' own through-bores. Wall
+# thicknesses follow the EN 10312 / press-fit stainless series; override with
+# --wall DN:MM if the vendor's data differs.
+set -euo pipefail
+
+SHARE="$HOME/.local/share/stp2skp"
+SU_VER="2025"
+OUT=""
+DIR=""
+LENGTH="1000"
+SIZES="12,15,18,22,28,35,42,54"
+WALLS="12:1.0,15:1.0,18:1.0,22:1.2,28:1.2,35:1.5,42:1.5,54:1.5"
+SEGMENTS="24"
+
+usage() {
+  cat <<'USAGE'
+usage: stp2skp-pipes [options]
+
+  -o, --out FILE      combined .skp (default: <dir>/pipes.skp)
+  -d, --dir DIR       where to write per-size components
+                      (default: ~/Documents/3d/valtec/pipes)
+  -l, --length MM     default pipe length, default 1000
+      --sizes LIST    comma-separated DN list
+      --walls LIST    DN:MM pairs
+      --segments N    circle segments, default 24
+USAGE
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -o|--out)      OUT="$2"; shift 2 ;;
+    -d|--dir)      DIR="$2"; shift 2 ;;
+    -l|--length)   LENGTH="$2"; shift 2 ;;
+    --sizes)       SIZES="$2"; shift 2 ;;
+    --walls)       WALLS="$2"; shift 2 ;;
+    --segments)    SEGMENTS="$2"; shift 2 ;;
+    -s|--sketchup) SU_VER="$2"; shift 2 ;;
+    -h|--help)     usage; exit 0 ;;
+    *)             echo "unknown: $1" >&2; exit 2 ;;
+  esac
+done
+
+DIR="${DIR:-$HOME/Documents/3d/valtec/pipes}"
+mkdir -p "$DIR"
+OUT="${OUT:-$DIR/pipes.skp}"
+rm -f "$SHARE/job.json" "$SHARE/job.done" "$SHARE/job.log"
+
+SIZES="$SIZES" WALLS="$WALLS" LENGTH="$LENGTH" SEGMENTS="$SEGMENTS" \
+python3 - "$OUT" "$DIR" "$SHARE/job.json" <<'PYEOF'
+import json, os, sys
+out, dir_, jobfile = sys.argv[1], sys.argv[2], sys.argv[3]
+walls = dict(p.split(':') for p in os.environ['WALLS'].split(','))
+pipes = []
+for dn in os.environ['SIZES'].split(','):
+    dn = dn.strip()
+    wall = float(walls.get(dn, 1.0))
+    pipes.append({
+        'dn': float(dn), 'wall': wall, 'length': float(os.environ['LENGTH']),
+        'segments': int(os.environ['SEGMENTS']),
+        'code': 'VTi.900.304.%s' % dn.zfill(3),
+        'name': 'Pipe DN%s' % dn,
+        'label': 'DN%s  %sx%s' % (dn, dn, wall),
+    })
+json.dump({'mode': 'pipes', 'out': out, 'dir': dir_, 'pipes': pipes},
+          open(jobfile, 'w'), ensure_ascii=False)
+print('pipes: %d sizes -> %s' % (len(pipes), out))
+PYEOF
+
+PLUGINS="$HOME/Library/Application Support/SketchUp $SU_VER/SketchUp/Plugins"
+cp "$SHARE/stp2skp_batch.rb" "$PLUGINS/stp2skp_batch.rb"
+SU_APP="/Applications/SketchUp $SU_VER/SketchUp.app"
+if pgrep -f "$SU_APP/Contents/MacOS/SketchUp" >/dev/null; then
+  echo "SketchUp is already running - quit it first" >&2; exit 1
+fi
+open -a "$SU_APP" "$SHARE/seed.skp"
+echo -n "building pipes"
+for _ in $(seq 1 600); do
+  [[ -f "$SHARE/job.done" ]] && break
+  sleep 1; echo -n "."
+done
+echo
+cat "$SHARE/job.log" 2>/dev/null
+osascript -e "tell application \"SketchUp\" to quit" >/dev/null 2>&1 || true
+for _ in $(seq 1 10); do
+  pgrep -f "$SU_APP/Contents/MacOS/SketchUp" >/dev/null || break
+  sleep 1
+done
+pgrep -f "$SU_APP/Contents/MacOS/SketchUp" >/dev/null && \
+  pkill -9 -f "$SU_APP/Contents/MacOS/SketchUp" || true
+ls -la "$DIR"/*.skp 2>/dev/null | sed 's/.*staff *//'

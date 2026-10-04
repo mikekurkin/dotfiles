@@ -1,0 +1,14 @@
+export EDITOR=vim
+export PAGER=less
+export LANG=en_US.UTF-8
+export PYTHONIOENCODING=UTF-8
+export LSCOLORS=Gxfxcxdxbxegedabagacad
+[[ ! -r "$HOME/.homebrewrc" ]] || source "$HOME/.homebrewrc"
+# Optional private environment: restore separately, chmod 600, never commit.
+if [[ -r "$HOME/.secret" ]]; then
+  if [[ "$(stat -f %Lp "$HOME/.secret" 2>/dev/null)" == 600 ]]; then
+    source "$HOME/.secret"
+  else
+    print -u2 'Private environment ignored: run chmod 600 ~/.secret after restoring it.'
+  fi
+fi

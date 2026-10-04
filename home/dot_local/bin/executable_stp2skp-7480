@@ -1,0 +1,178 @@
+#!/usr/bin/env bash
+# stp2skp-7480 - build the 7480 bracket from silhouettes traced off the
+# drawing. Support (stepped strap) and bracket (pipe clamp) stay separate
+# components. Profiles come from profiles.json produced by extract.py.
+set -euo pipefail
+
+SHARE="$HOME/.local/share/stp2skp"
+SU_VER="2025"
+DIR="$HOME/Documents/3d/brackets/7480"
+PROFILES="${PROFILES:-/private/tmp/claude-501/-Users-mk/02a4721d-bdb5-42f5-a023-ae988d47caa7/scratchpad/profiles.json}"
+mkdir -p "$DIR"
+OUT="$DIR/7480 assemblies.skp"
+rm -f "$SHARE/job.json" "$SHARE/job.done" "$SHARE/job.log"
+
+python3 - "$DIR" "$OUT" "$SHARE/job.json" "$PROFILES" <<'PYEOF'
+import json, os, sys
+dir_, out, jobfile, profiles = sys.argv[1:5]
+P = json.load(open(profiles))
+
+# The drawing is article 7480 34: bore centre sits at z=35.7mm above the strap
+# underside, matching A=36, and the traced bore radius is 13.4mm = 3/4" pipe.
+DRAWN = dict(article='7480 34', thread='3/4"', od=26.9, a=36, b=55, d=70, e=50)
+OTHERS = [dict(article='7480 1',   thread='1"',     od=33.7, a=39, b=61, d=76, e=54),
+          dict(article='7480 114', thread='1 1/4"', od=42.4, a=43, b=70, d=85, e=58)]
+SUPPORT_W = 25.0              # strap width G, dimensioned on the drawing
+# The clamp band is not dimensioned; the plan view shows it spanning ~12 mm of
+# the strap's 25, so the bracket is a good deal thinner than the support.
+BRACKET_W = 12.0
+SCREW_X, SCREW_D = 27.6, 5.0  # screw axis and shaft, measured off the drawing
+HEAD_D, HEAD_H = 9.5, 3.5     # head diameter from the plan view's cross-slot
+SCREW_Z = (17.0, 50.4)        # shaft run, drawing coordinates
+CUTOUTS = json.load(open(os.path.join(os.path.dirname(profiles), 'cutouts.json')))
+# Measured off the traced crescent, about the bore centre.
+ARC = dict(r0=15.6, r1=18.4, a0=-15.0, a1=84.0)
+
+clamp = P['clamp']
+bore = P['bore']
+base_z = min(z for _x, z in clamp)      # where the clamp meets the strap
+strap = P['strap']
+
+
+TOP = P['top']          # the strap's upper polyline, left to right
+
+
+def strap_top_at(x):
+    """Top surface height at x, interpolated ALONG the polyline.
+
+    Sampling nearby vertices does not work: after simplification a platform is
+    one long segment with vertices only at its ends, so a point in the middle
+    finds none and silently falls back to the whole strap's maximum - which
+    put both clamps on the high platform.
+    """
+    pts = sorted(TOP)
+    if x <= pts[0][0]:
+        return pts[0][1]
+    for (x0, z0), (x1, z1) in zip(pts, pts[1:]):
+        if x0 <= x <= x1:
+            if x1 == x0:
+                return max(z0, z1)
+            return z0 + (z1 - z0) * (x - x0) / (x1 - x0)
+    return pts[-1][1]
+
+
+# Clamp positions as drawn: the traced bore sits at x=49, its twin at 269.7.
+PLACES = [49.0, 269.7]
+
+
+def variant(spec):
+    """Map the traced 7480 34 silhouette onto another article.
+
+    Vertical: piecewise-linear through the anchors the table gives us, so the
+    pipe centre lands on A and the top on B exactly. Horizontal: scaled about
+    the bore centre by the pipe-diameter ratio, so the body grows with the
+    pipe. Only 7480 34 is actually drawn; the others are derived this way.
+    """
+    a0, b0 = DRAWN['a'], DRAWN['b']
+    a1, b1 = spec['a'], spec['b']
+    kx = spec['od'] / DRAWN['od']
+
+    def z_map(z):
+        if z <= base_z:
+            return z
+        if z <= a0:
+            return base_z + (z - base_z) * (a1 - base_z) / (a0 - base_z)
+        return a1 + (z - a0) * (b1 - a1) / (b0 - a0)
+
+    def warp(pts):
+        return [[bore['x'] + (x - bore['x']) * kx, z_map(z)] for x, z in pts]
+
+    return warp(clamp), {'x': bore['x'], 'z': a1, 'r': spec['od'] / 2}, warp, z_map, kx
+
+
+def bracket(spec, poly, bore_spec, warp=None, z_map=None, kx=1.0):
+    # Re-origin: x at the bore axis, z at the face that sits on the strap.
+    dx, dz = -bore_spec['x'], -base_z
+    cuts = []
+    for c in CUTOUTS:
+        pts = warp(c['poly']) if warp else c['poly']
+        cuts.append({'name': c['name'],
+                     'poly': [[x + dx, z + dz] for x, z in pts]})
+    sx = bore['x'] + (SCREW_X - bore['x']) * kx
+    z0 = z_map(SCREW_Z[0]) if z_map else SCREW_Z[0]
+    z1 = z_map(SCREW_Z[1]) if z_map else SCREW_Z[1]
+    # The screw is a standard fastener: it does not scale with the clamp.
+    # Scaling it made the 1 1/4" head 15 mm across on a 12 mm band, which
+    # pushed the part's own thickness out to 15 mm.
+    # Extend the notch right edge past the seat's left edge so the screw
+    # recess and the seat form one opening. Deriving it from the shaft alone
+    # left a 0.2mm wall - and the variants re-created it, because the screw
+    # position scales with the body while the shaft diameter does not.
+    seat_pts = [p for c in cuts if 'seat' in c['name'] for p in c['poly']]
+    band = [p[0] for p in seat_pts if z0 + dz <= p[1] <= z1 + dz]
+    notch_x1 = sx + dx + SCREW_D / 2 + 0.4
+    if band:
+        notch_x1 = max(notch_x1, min(band) + 0.6)
+    bolt = {'x': sx + dx, 'z0': z0 + dz, 'z1': z1 + dz,
+            'shaft_d': SCREW_D, 'head_d': min(HEAD_D, BRACKET_W - 1.0),
+            'head_h': HEAD_H,
+            'notch_x0': sx + dx - SCREW_D / 2 - 0.4, 'notch_x1': notch_x1}
+    # No arc_cut: the band gap is the traced crescent in CUTOUTS. A constant
+    # radius sector breached the right-hand wall at its lower end and left a
+    # hair-thin web at its upper end.
+    return {
+        'cuts': cuts, 'bolt': bolt,
+        'name': 'Bracket %s' % spec['article'],
+        'label': '%s  %s' % (spec['article'], spec['thread']),
+        'width': BRACKET_W,
+        'poly': [[x + dx, z + dz] for x, z in poly],
+        'bore': {'x': 0.0, 'z': bore_spec['z'] + dz, 'r': bore_spec['r']},
+        # Centre the narrow clamp across the wider strap.
+        'places': [{'x': px, 'z': strap_top_at(px),
+                    'y': (SUPPORT_W - BRACKET_W) / 2} for px in PLACES],
+        'meta': {'code': spec['article'], 'thread': spec['thread'],
+                 'name': 'Collare %s - pipe clamp' % spec['thread'],
+                 'pipe_od_mm': spec['od'], 'a_mm': spec['a'], 'b_mm': spec['b'],
+                 'd_mm': spec['d'], 'e_mm': spec['e'],
+                 'source': 'traced from drawing' if spec is DRAWN else 'derived from 7480 34'},
+    }
+
+
+brackets = [bracket(DRAWN, clamp, dict(x=bore['x'], z=DRAWN['a'], r=DRAWN['od'] / 2))]
+for spec in OTHERS:
+    poly, bs, warp, z_map, kx = variant(spec)
+    brackets.append(bracket(spec, poly, bs, warp, z_map, kx))
+
+support = {
+    'name': 'Support 7480', 'width': SUPPORT_W, 'poly': P['strap'],
+    'top_z': max(z for _x, z in P['strap']),
+    'slots': [{'x': 134.3, 'len': 18.7, 'wide': 6.8},
+              {'x': 194.4, 'len': 18.7, 'wide': 6.8}],
+    'meta': {'code': '7480', 'name': 'Staffa - support strap',
+             'length_mm': 300, 'width_mm': SUPPORT_W, 'c_range_mm': '206-235',
+             'source': 'traced from drawing'},
+}
+
+json.dump({'mode': 'profiles', 'out': out, 'dir': dir_,
+           'support': support, 'brackets': brackets}, open(jobfile, 'w'))
+print('7480: support (%d pts) + %d brackets' % (len(support['poly']), len(brackets)))
+PYEOF
+
+PLUGINS="$HOME/Library/Application Support/SketchUp $SU_VER/SketchUp/Plugins"
+cp "$SHARE/stp2skp_batch.rb" "$PLUGINS/stp2skp_batch.rb"
+SU_APP="/Applications/SketchUp $SU_VER/SketchUp.app"
+if pgrep -f "$SU_APP/Contents/MacOS/SketchUp" >/dev/null; then
+  echo "SketchUp is already running - quit it first" >&2; exit 1
+fi
+open -a "$SU_APP" "$SHARE/seed.skp"
+echo -n "building"
+for _ in $(seq 1 600); do
+  [[ -f "$SHARE/job.done" ]] && break
+  sleep 1; echo -n "."
+done
+echo
+cat "$SHARE/job.log" 2>/dev/null
+osascript -e "tell application \"SketchUp\" to quit" >/dev/null 2>&1 || true
+for _ in $(seq 1 10); do pgrep -f "$SU_APP/Contents/MacOS/SketchUp" >/dev/null || break; sleep 1; done
+pgrep -f "$SU_APP/Contents/MacOS/SketchUp" >/dev/null && pkill -9 -f "$SU_APP/Contents/MacOS/SketchUp" || true
+ls -la "$DIR"/*.skp 2>/dev/null | sed 's/.*staff *//'

@@ -1,0 +1,71 @@
+{
+  "title": "Fusion & SketchUp: ` to F2, Shift+` to F4",
+  "rules": [
+    {
+      "description": "Fusion & SketchUp: ` to F2, Shift+` to F4",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f4",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.autodesk\\.fusion360$",
+                "^com\\.autodesk\\.dls\\.streamer\\.scriptapp\\.Autodesk-Fusion$",
+                "^com\\.sketchup\\.SketchUp\\.\\d+$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f2",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.autodesk\\.fusion360$",
+                "^com\\.autodesk\\.dls\\.streamer\\.scriptapp\\.Autodesk-Fusion$",
+                "^com\\.sketchup\\.SketchUp\\.\\d+$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

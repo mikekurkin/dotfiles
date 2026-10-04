@@ -1,0 +1,177 @@
+#!/usr/bin/env bash
+# stp2skp - batch convert STEP / IFC models to SketchUp .skp
+#
+# STEP files are tessellated headlessly by FreeCAD into Collada, then handed
+# to SketchUp, which is the only thing on the planet that can write .skp.
+# IFC files skip the FreeCAD stage - SketchUp imports them natively.
+set -euo pipefail
+
+SHARE="$HOME/.local/share/stp2skp"
+FREECAD="/Applications/FreeCAD.app/Contents/Resources/bin/freecadcmd"
+SU_VER="2025"
+OUTDIR=""
+LINEAR="0.5"      # mm of chord deviation
+ANGULAR="30"      # degrees between adjacent facet normals - the dominant knob:
+                  # 15deg gave 28k triangles on a test profile, 30deg gave 6.7k
+KEEP_INTERMEDIATE=0
+MERGE=1
+SMOOTH_ANGLE="20"
+GUIDES=1
+DAE_ONLY=0
+JOBS="$(sysctl -n hw.ncpu)"
+
+usage() {
+  cat <<'USAGE'
+usage: stp2skp [options] <file-or-directory>...
+
+  -o, --outdir DIR     write .skp here (default: next to each source file)
+  -d, --deflection MM  linear deflection, default 0.5
+  -a, --angular DEG    angular deflection, default 30 (biggest effect on size;
+                       45-60 for background props, 15 for close-up detail)
+  -j, --jobs N         parallel tessellation workers (default: all cores)
+  -s, --sketchup VER   SketchUp version to drive, default 2025
+      --mesh-only      stop after tessellation, don't launch SketchUp
+      --no-merge       keep raw triangles (default merges coplanar faces)
+      --smooth DEG     soften seams below this dihedral angle, default 20.
+                       0 leaves every edge hard and visible
+      --no-guides      skip construction points at circle centres
+      --keep           keep intermediate mesh JSON
+  -h, --help           this
+
+examples:
+  stp2skp ~/Downloads/stp\ 5                     # whole folder
+  stp2skp -d 0.5 -o ~/skp ~/Downloads/**/*.stp   # coarse, into one folder
+  stp2skp ~/Downloads/IFC/*.ifc                  # IFC works the same way
+USAGE
+}
+
+SRCS=()
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -o|--outdir)     OUTDIR="$2"; shift 2 ;;
+    -d|--deflection) LINEAR="$2"; shift 2 ;;
+    -a|--angular)    ANGULAR="$2"; shift 2 ;;
+    -j|--jobs)       JOBS="$2"; shift 2 ;;
+    -s|--sketchup)   SU_VER="$2"; shift 2 ;;
+    --mesh-only)     DAE_ONLY=1; shift ;;
+    --no-merge)      MERGE=0; shift ;;
+    --smooth)        SMOOTH_ANGLE="$2"; shift 2 ;;
+    --no-guides)     GUIDES=0; shift ;;
+    --keep)          KEEP_INTERMEDIATE=1; shift ;;
+    -h|--help)       usage; exit 0 ;;
+    -*)              echo "unknown option: $1" >&2; usage; exit 2 ;;
+    *)               SRCS+=("$1"); shift ;;
+  esac
+done
+[[ ${#SRCS[@]} -eq 0 ]] && { usage; exit 2; }
+
+# ---- collect inputs -------------------------------------------------------
+FILES=()
+for s in "${SRCS[@]}"; do
+  if [[ -d "$s" ]]; then
+    while IFS= read -r -d '' f; do FILES+=("$f"); done \
+      < <(find "$s" -type f \( -iname '*.stp' -o -iname '*.step' -o -iname '*.ifc' \) -print0)
+  elif [[ -f "$s" ]]; then
+    FILES+=("$s")
+  else
+    echo "skipping (not found): $s" >&2
+  fi
+done
+[[ ${#FILES[@]} -eq 0 ]] && { echo "no .stp/.step/.ifc files found" >&2; exit 1; }
+echo "stp2skp: ${#FILES[@]} file(s)"
+
+WORK="$SHARE/work"
+mkdir -p "$WORK" "$SHARE"
+rm -f "$SHARE/job.json" "$SHARE/job.done" "$SHARE/job.log"
+
+# ---- stage 1: STEP -> DAE (parallel, headless) ----------------------------
+[[ -x "$FREECAD" ]] || { echo "FreeCAD not found at $FREECAD" >&2; exit 1; }
+echo "stage 1: tessellating (deflection ${LINEAR}mm / ${ANGULAR}deg, ${JOBS} workers)"
+printf '%s\0' "${FILES[@]}" | xargs -0 -P "$JOBS" -I{} bash -c '
+    f="$1"
+    base="$(basename "${f%.*}")"
+    # Parameters go through the environment: freecadcmd would treat trailing
+    # argv entries as documents to open.
+    STP2SKP_SRC="$f" STP2SKP_DST="$4/$base.json" \
+    STP2SKP_LINEAR="$5" STP2SKP_ANGULAR="$6" \
+      "$2" "$3/stp_to_mesh.py" >/dev/null
+  ' _ {} "$FREECAD" "$SHARE" "$WORK" "$LINEAR" "$ANGULAR" || true
+
+# ---- build the SketchUp job ----------------------------------------------
+MERGE="$MERGE" SMOOTH_ANGLE="$SMOOTH_ANGLE" GUIDES="$GUIDES" python3 - "$WORK" "$OUTDIR" "$SHARE/job.json" "${FILES[@]}" <<'PYEOF'
+import json, os, sys
+work, outdir, jobfile = sys.argv[1], sys.argv[2], sys.argv[3]
+items = []
+for src in sys.argv[4:]:
+    base = os.path.splitext(os.path.basename(src))[0]
+    staged = os.path.join(work, base + '.json')
+    if not os.path.exists(staged):
+        sys.stderr.write("  no intermediate for %s, skipping\n" % base)
+        continue
+    dest_dir = outdir or os.path.dirname(os.path.abspath(src))
+    os.makedirs(dest_dir, exist_ok=True)
+    items.append({'src': staged, 'dst': os.path.join(dest_dir, base + '.skp')})
+json.dump({'items': items,
+           'merge': os.environ.get('MERGE', '1') != '0',
+           'smooth_angle': float(os.environ.get('SMOOTH_ANGLE', '20')),
+           'guides': os.environ.get('GUIDES', '1') != '0'},
+          open(jobfile, 'w'))
+print("stage 2: %d model(s) queued for SketchUp" % len(items))
+PYEOF
+
+if [[ $DAE_ONLY -eq 1 ]]; then
+  echo "--mesh-only: intermediates in $WORK"
+  rm -f "$SHARE/job.json"
+  exit 0
+fi
+
+# ---- stage 2: drive SketchUp ---------------------------------------------
+PLUGINS="$HOME/Library/Application Support/SketchUp $SU_VER/SketchUp/Plugins"
+[[ -d "$PLUGINS" ]] || { echo "SketchUp $SU_VER plugins dir not found" >&2; exit 1; }
+cp "$SHARE/stp2skp_batch.rb" "$PLUGINS/stp2skp_batch.rb"
+
+SU_APP="/Applications/SketchUp $SU_VER/SketchUp.app"
+
+# Launch with a document open. Starting SketchUp bare leaves it on the Welcome
+# window - a modal that blocks Ruby timers, and which a tiling WM (AeroSpace)
+# can park off-screen where it is invisible and unanswerable.
+SEED="$SHARE/seed.skp"
+if [[ ! -f "$SEED" ]]; then
+  # Smallest metric template wins: Temp01b carries ~2MB of styles and a scale
+  # figure, which survived into every output as ~300KB of dead weight.
+  TEMPLATE="$SU_APP/Contents/Resources/en-US/Templates/Temp04b - AEC.skp"
+  [[ -f "$TEMPLATE" ]] || TEMPLATE="$(find "$SU_APP/Contents/Resources" -name '*.skp' -path '*Templates*' -exec ls -S {} + | tail -1)"
+  cp "$TEMPLATE" "$SEED"
+fi
+# Match the real binary, not the bundle path: the Finder thumbnail extension
+# (SketchUpThumbnailExtension.appex) lives inside the bundle and false-positives.
+if pgrep -f "$SU_APP/Contents/MacOS/SketchUp" >/dev/null; then
+  echo "SketchUp is already running - quit it first so the batch can start clean" >&2
+  exit 1
+fi
+open -a "$SU_APP" "$SEED"
+
+echo -n "waiting for SketchUp"
+for _ in $(seq 1 3600); do
+  [[ -f "$SHARE/job.done" ]] && break
+  sleep 1; echo -n "."
+done
+echo
+
+if [[ -f "$SHARE/job.done" ]]; then
+  # Ask nicely, then insist: SketchUp ignores the AppleScript quit on some
+  # setups. Safe either way - the last action was a save, so nothing is dirty.
+  osascript -e "tell application \"SketchUp\" to quit" >/dev/null 2>&1 || true
+  for _ in $(seq 1 10); do
+    pgrep -f "$SU_APP/Contents/MacOS/SketchUp" >/dev/null || break
+    sleep 1
+  done
+  # SIGTERM is ignored too; SIGKILL is what actually lands.
+  pgrep -f "$SU_APP/Contents/MacOS/SketchUp" >/dev/null && \
+    pkill -9 -f "$SU_APP/Contents/MacOS/SketchUp" || true
+  cat "$SHARE/job.log" 2>/dev/null
+  [[ $KEEP_INTERMEDIATE -eq 1 ]] || rm -rf "$WORK"
+else
+  echo "timed out waiting for SketchUp; see $SHARE/job.log" >&2
+  exit 1
+fi

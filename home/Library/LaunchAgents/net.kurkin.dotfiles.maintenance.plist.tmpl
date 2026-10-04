@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>Label</key><string>net.kurkin.dotfiles.maintenance</string>
+  <key>ProgramArguments</key><array>
+    <string>/opt/homebrew/opt/python@3.14/bin/python3.14</string>
+    <string>{{ .chezmoi.homeDir }}/.local/share/dotfiles/maintenance.py</string>
+  </array>
+  <key>StartCalendarInterval</key><dict>
+    <key>Weekday</key><integer>0</integer>
+    <key>Hour</key><integer>10</integer>
+    <key>Minute</key><integer>0</integer>
+  </dict>
+  <key>ProcessType</key><string>Background</string>
+  <key>EnvironmentVariables</key><dict>
+    <key>PATH</key><string>/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <key>HOMEBREW_NO_AUTO_UPDATE</key><string>1</string>
+    <key>HOMEBREW_CASK_OPTS</key><string>--no-quarantine</string>
+    <key>HOMEBREW_CLEANUP_MAX_AGE_DAYS</key><string>7</string>
+    <key>HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS</key><string>1</string>
+  </dict>
+</dict></plist>

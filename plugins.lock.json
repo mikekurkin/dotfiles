@@ -1,0 +1,207 @@
+[
+  {
+    "repository": "https://github.com/ohmyzsh/ohmyzsh.git",
+    "revision": "4d9e5ce9a7d8db3c3aadcae81580a5c3ff5a0e8b",
+    "destination": ".local/share/dotfiles/plugins/oh-my-zsh"
+  },
+  {
+    "repository": "https://github.com/romkatv/powerlevel10k.git",
+    "revision": "657e184e0d01da186f305e51be781ec36191d6bb",
+    "destination": ".local/share/dotfiles/plugins/powerlevel10k"
+  },
+  {
+    "repository": "https://github.com/zsh-users/zsh-history-substring-search.git",
+    "revision": "4abed97b6e67eb5590b39bcd59080aa23192f25d",
+    "destination": ".local/share/dotfiles/plugins/history-substring-search"
+  },
+  {
+    "repository": "https://github.com/petervanderdoes/git-flow-completion.git",
+    "revision": "990d7200e24e6a15e46258aa5e5effa95a66897b",
+    "destination": ".local/share/dotfiles/plugins/git-flow-completion"
+  },
+  {
+    "repository": "https://github.com/zdharma-continuum/fast-syntax-highlighting.git",
+    "revision": "817916dfa907d179f0d46d8de355e883cf67bd97",
+    "destination": ".local/share/dotfiles/plugins/fast-syntax-highlighting"
+  },
+  {
+    "repository": "https://github.com/tmux-plugins/tmux-sensible.git",
+    "revision": "25cb91f42d020f675bb0a2ce3fbd3a5d96119efa",
+    "destination": ".tmux/plugins/tmux-sensible"
+  },
+  {
+    "repository": "https://github.com/christoomey/vim-tmux-navigator.git",
+    "revision": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
+    "destination": ".tmux/plugins/vim-tmux-navigator"
+  },
+  {
+    "repository": "https://github.com/tmux-plugins/tmux-resurrect.git",
+    "revision": "cff343cf9e81983d3da0c8562b01616f12e8d548",
+    "destination": ".tmux/plugins/tmux-resurrect"
+  },
+  {
+    "repository": "https://github.com/tmux-plugins/tmux-continuum.git",
+    "revision": "0698e8f4b17d6454c71bf5212895ec055c578da0",
+    "destination": ".tmux/plugins/tmux-continuum"
+  },
+  {
+    "repository": "https://github.com/wfxr/tmux-power.git",
+    "revision": "d69c4d7ffc64828ac5ac4b3056dacdd7ef51997f",
+    "destination": ".tmux/plugins/tmux-power"
+  },
+  {
+    "repository": "https://github.com/scrooloose/nerdtree.git",
+    "revision": "9310f91476a94ee9c2f3a587171893743a343e26",
+    "destination": ".vim/plugged/nerdtree"
+  },
+  {
+    "repository": "https://github.com/tpope/vim-commentary.git",
+    "revision": "627308e30639be3e2d5402808ce18690557e8292",
+    "destination": ".vim/plugged/vim-commentary"
+  },
+  {
+    "repository": "https://github.com/tpope/vim-rhubarb.git",
+    "revision": "977b3ccbad1f7e5370354ae409fb2ea4a7ce2058",
+    "destination": ".vim/plugged/vim-rhubarb"
+  },
+  {
+    "repository": "https://github.com/tpope/vim-fugitive.git",
+    "revision": "a67854368ea9810936d57e3fea00a4c05bf47c26",
+    "destination": ".vim/plugged/vim-fugitive"
+  },
+  {
+    "repository": "https://github.com/tpope/vim-unimpaired.git",
+    "revision": "112e23a22ff41d090c2440aeaf12d2a6c5486bc6",
+    "destination": ".vim/plugged/vim-unimpaired"
+  },
+  {
+    "repository": "https://github.com/tpope/vim-surround.git",
+    "revision": "f51a26d3710629d031806305b6c8727189cd1935",
+    "destination": ".vim/plugged/vim-surround"
+  },
+  {
+    "repository": "https://github.com/tpope/vim-speeddating.git",
+    "revision": "95da3d72efc91a5131acf388eafa4b1ad6512a9b",
+    "destination": ".vim/plugged/vim-speeddating"
+  },
+  {
+    "repository": "https://github.com/tpope/vim-repeat.git",
+    "revision": "24afe922e6a05891756ecf331f39a1f6743d3d5a",
+    "destination": ".vim/plugged/vim-repeat"
+  },
+  {
+    "repository": "https://github.com/matze/vim-move.git",
+    "revision": "6442747a3d3084e3c1214388192b8308fcf391b8",
+    "destination": ".vim/plugged/vim-move"
+  },
+  {
+    "repository": "https://github.com/svermeulen/vim-cutlass.git",
+    "revision": "7afd649415541634c8ce317fafbc31cd19d57589",
+    "destination": ".vim/plugged/vim-cutlass"
+  },
+  {
+    "repository": "https://github.com/svermeulen/vim-subversive.git",
+    "revision": "5695f97fc803767bf657a5e512daec19dd1fd786",
+    "destination": ".vim/plugged/vim-subversive"
+  },
+  {
+    "repository": "https://github.com/easymotion/vim-easymotion.git",
+    "revision": "d75d9591e415652b25d9e0a3669355550325263d",
+    "destination": ".vim/plugged/vim-easymotion"
+  },
+  {
+    "repository": "https://github.com/bkad/CamelCaseMotion.git",
+    "revision": "de439d7c06cffd0839a29045a103fe4b44b15cdc",
+    "destination": ".vim/plugged/CamelCaseMotion"
+  },
+  {
+    "repository": "https://github.com/vim-airline/vim-airline.git",
+    "revision": "26f922753a288df639b8d05d13ed62b9b04a26bc",
+    "destination": ".vim/plugged/vim-airline"
+  },
+  {
+    "repository": "https://github.com/vim-airline/vim-airline-themes.git",
+    "revision": "97cf3e6e638f936187d5f6e9b5eb1bdf0a4df256",
+    "destination": ".vim/plugged/vim-airline-themes"
+  },
+  {
+    "repository": "https://github.com/airblade/vim-gitgutter.git",
+    "revision": "256702dd1432894b3607d3de6cd660863b331818",
+    "destination": ".vim/plugged/vim-gitgutter"
+  },
+  {
+    "repository": "https://github.com/thaerkh/vim-indentguides.git",
+    "revision": "3152f3a0604089d545983b72e7cb676898bb7da1",
+    "destination": ".vim/plugged/vim-indentguides"
+  },
+  {
+    "repository": "https://github.com/bronson/vim-trailing-whitespace.git",
+    "revision": "05f068ebd9dbdf71d2d334d02abd99deb0311c40",
+    "destination": ".vim/plugged/vim-trailing-whitespace"
+  },
+  {
+    "repository": "https://github.com/Raimondi/delimitMate.git",
+    "revision": "537a1da0fa5eeb88640425c37e545af933c56e1b",
+    "destination": ".vim/plugged/delimitMate"
+  },
+  {
+    "repository": "https://github.com/w0rp/ale.git",
+    "revision": "f9deee0e416f626d8597e3e6ea8e89172e5aaa78",
+    "destination": ".vim/plugged/ale"
+  },
+  {
+    "repository": "https://github.com/godlygeek/tabular.git",
+    "revision": "339091ac4dd1f17e225fe7d57b48aff55f99b23a",
+    "destination": ".vim/plugged/tabular"
+  },
+  {
+    "repository": "https://github.com/plasticboy/vim-markdown.git",
+    "revision": "8e5d86f7b85234d3d1b4207dceebc43a768ed5d4",
+    "destination": ".vim/plugged/vim-markdown"
+  },
+  {
+    "repository": "https://github.com/ferrine/md-img-paste.vim.git",
+    "revision": "c0aa411d9ebfeedff87b2177055c530246561dd8",
+    "destination": ".vim/plugged/md-img-paste.vim"
+  },
+  {
+    "repository": "https://github.com/shime/vim-livedown.git",
+    "revision": "24c78c0c1177c0231bb542fa1e3807a3b089248e",
+    "destination": ".vim/plugged/vim-livedown"
+  },
+  {
+    "repository": "https://github.com/lyokha/vim-xkbswitch.git",
+    "revision": "04acea43fce810e19cf46efedee05bd6ced3cf84",
+    "destination": ".vim/plugged/vim-xkbswitch"
+  },
+  {
+    "repository": "https://github.com/xolox/vim-misc.git",
+    "revision": "3e6b8fb6f03f13434543ce1f5d24f6a5d3f34f0b",
+    "destination": ".vim/plugged/vim-misc"
+  },
+  {
+    "repository": "https://github.com/xolox/vim-session.git",
+    "revision": "9e9a6088f0554f6940c19889d0b2a8f39d13f2bb",
+    "destination": ".vim/plugged/vim-session"
+  },
+  {
+    "repository": "https://github.com/djoshea/vim-autoread.git",
+    "revision": "7e83d47a71fdafc271005fc39c89863204278c77",
+    "destination": ".vim/plugged/vim-autoread"
+  },
+  {
+    "repository": "https://github.com/vim-scripts/vim-auto-save.git",
+    "revision": "1685175183d160879ebcf231cd4c96b1b8a5a5c9",
+    "destination": ".vim/plugged/vim-auto-save"
+  },
+  {
+    "repository": "https://github.com/SirVer/ultisnips.git",
+    "revision": "53e1921e3ef015ef658e540c0aa9c4835f9c18a6",
+    "destination": ".vim/plugged/ultisnips"
+  },
+  {
+    "repository": "https://github.com/honza/vim-snippets.git",
+    "revision": "0a2c7355e2986fb032aa84442f6fab45c70fc106",
+    "destination": ".vim/plugged/vim-snippets"
+  }
+]

@@ -1,0 +1,50 @@
+[include]
+	; path = /opt/homebrew/Cellar/git-delta/themes.gitconfig
+[user]
+	name = Mike Kurkin
+	email = mike@kurkin.net
+[core]
+	excludesfile = {{ .chezmoi.homeDir }}/.gitignore_global
+	autocrlf = input
+	safecrlf = warn
+[alias]
+	co = checkout
+	ci = commit
+	br = branch
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+	st = status
+[core]
+    pager = delta
+[delta]
+    navigate = true
+    light = false
+    line-numbers = true
+    side-by-side = true
+    ; features = collared-trogon
+    ; plus-style = syntax "#122B1F"
+    ; minus-style = syntax "#33191D"
+[interactive]
+    diffFilter = delta --color-only
+[add.interactive]
+    useBuiltin = false
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved=default
+[diff "zip"]
+    textconv=unzip -c -a
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[commit]
+	template = {{ .chezmoi.homeDir }}/.stCommitMsg

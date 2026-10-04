@@ -1,0 +1,578 @@
+[
+  {
+    "kind": "formula",
+    "old": "chruby",
+    "disposition": "mise / tool manifest",
+    "reason": "Consolidated runtime/tool ownership"
+  },
+  {
+    "kind": "formula",
+    "old": "fasd",
+    "disposition": "vendored local executable",
+    "reason": "Preserve existing fasd navigation; no current Homebrew formula"
+  },
+  {
+    "kind": "formula",
+    "old": "fish",
+    "disposition": "excluded",
+    "reason": "Retired by user"
+  },
+  {
+    "kind": "formula",
+    "old": "fisher",
+    "disposition": "excluded",
+    "reason": "Retired by user"
+  },
+  {
+    "kind": "formula",
+    "old": "ipython",
+    "disposition": "mise / tool manifest",
+    "reason": "Consolidated runtime/tool ownership"
+  },
+  {
+    "kind": "formula",
+    "old": "nvm",
+    "disposition": "mise / tool manifest",
+    "reason": "Consolidated runtime/tool ownership"
+  },
+  {
+    "kind": "formula",
+    "old": "postgresql@14",
+    "new": "postgresql@17",
+    "disposition": "replacement",
+    "reason": "Supported current equivalent; database data migration is manual"
+  },
+  {
+    "kind": "formula",
+    "old": "pyenv",
+    "disposition": "mise / tool manifest",
+    "reason": "Consolidated runtime/tool ownership"
+  },
+  {
+    "kind": "formula",
+    "old": "python@3.10",
+    "disposition": "mise / tool manifest",
+    "reason": "Consolidated runtime/tool ownership"
+  },
+  {
+    "kind": "formula",
+    "old": "python@3.12",
+    "disposition": "mise / tool manifest",
+    "reason": "Consolidated runtime/tool ownership"
+  },
+  {
+    "kind": "formula",
+    "old": "python@3.9",
+    "disposition": "mise / tool manifest",
+    "reason": "Consolidated runtime/tool ownership"
+  },
+  {
+    "kind": "formula",
+    "old": "ruby",
+    "disposition": "mise / tool manifest",
+    "reason": "Consolidated runtime/tool ownership"
+  },
+  {
+    "kind": "formula",
+    "old": "ruby-install",
+    "disposition": "mise / tool manifest",
+    "reason": "Consolidated runtime/tool ownership"
+  },
+  {
+    "kind": "formula",
+    "old": "tldr",
+    "new": "tlrc",
+    "disposition": "replacement",
+    "reason": "Supported current equivalent; database data migration is manual"
+  },
+  {
+    "kind": "formula",
+    "old": "typescript",
+    "disposition": "mise / tool manifest",
+    "reason": "Consolidated runtime/tool ownership"
+  },
+  {
+    "kind": "formula",
+    "old": "yarn",
+    "disposition": "mise / tool manifest",
+    "reason": "Consolidated runtime/tool ownership"
+  },
+  {
+    "kind": "cask",
+    "old": "raycast",
+    "new": "sol",
+    "disposition": "user-selected replacement",
+    "reason": "Explicit user request"
+  },
+  {
+    "kind": "cask",
+    "old": "textmate",
+    "new": "coteditor",
+    "disposition": "user-selected replacement",
+    "reason": "Explicit user request"
+  },
+  {
+    "kind": "cask",
+    "old": "sublime-text",
+    "new": "coteditor",
+    "disposition": "user-selected replacement",
+    "reason": "Explicit user request"
+  },
+  {
+    "kind": "cask",
+    "old": "typora",
+    "new": "coteditor",
+    "disposition": "user-selected replacement",
+    "reason": "Explicit user request"
+  },
+  {
+    "kind": "cask",
+    "old": "adguard",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "adguard-vpn",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "amneziavpn",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "bitwarden",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "dbeaver-community",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "disk-drill",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "dotnet-sdk",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "epic-games",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "figma",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "freecad",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "garmin-express",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "gitkraken",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "google-earth-pro",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "helium-browser",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "hex-fiend",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "kindavim",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "mullvad-vpn",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "obsidian",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "omnigraffle",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "outline",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "passepartout",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "pdf-expert",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "postman",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "sublime-merge",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "swiftbar",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "telegram-desktop",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "transcribe",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "wifi-explorer",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "cask",
+    "old": "zed",
+    "disposition": "optional; excluded from fresh install",
+    "reason": "Explicit user request: not used regularly"
+  },
+  {
+    "kind": "formula",
+    "old": "haskell-language-server",
+    "disposition": "excluded by user Brewfile edit",
+    "reason": "Synchronize provisioning and weekly maintenance with reviewed Brewfile"
+  },
+  {
+    "kind": "formula",
+    "old": "henryaj/tap/autoclaude",
+    "disposition": "excluded by user Brewfile edit",
+    "reason": "Synchronize provisioning and weekly maintenance with reviewed Brewfile"
+  },
+  {
+    "kind": "formula",
+    "old": "httpie",
+    "disposition": "excluded by user Brewfile edit",
+    "reason": "Synchronize provisioning and weekly maintenance with reviewed Brewfile"
+  },
+  {
+    "kind": "formula",
+    "old": "iperf",
+    "disposition": "excluded by user Brewfile edit",
+    "reason": "Synchronize provisioning and weekly maintenance with reviewed Brewfile"
+  },
+  {
+    "kind": "formula",
+    "old": "iperf3",
+    "disposition": "excluded by user Brewfile edit",
+    "reason": "Synchronize provisioning and weekly maintenance with reviewed Brewfile"
+  },
+  {
+    "kind": "formula",
+    "old": "jq",
+    "disposition": "excluded by user Brewfile edit",
+    "reason": "Synchronize provisioning and weekly maintenance with reviewed Brewfile"
+  },
+  {
+    "kind": "formula",
+    "old": "less",
+    "disposition": "excluded by user Brewfile edit",
+    "reason": "Synchronize provisioning and weekly maintenance with reviewed Brewfile"
+  },
+  {
+    "kind": "formula",
+    "old": "libffi",
+    "disposition": "excluded by user Brewfile edit",
+    "reason": "Synchronize provisioning and weekly maintenance with reviewed Brewfile"
+  },
+  {
+    "kind": "formula",
+    "old": "libyaml",
+    "disposition": "excluded by user Brewfile edit",
+    "reason": "Synchronize provisioning and weekly maintenance with reviewed Brewfile"
+  },
+  {
+    "kind": "formula",
+    "old": "llvm",
+    "disposition": "excluded by user Brewfile edit",
+    "reason": "Synchronize provisioning and weekly maintenance with reviewed Brewfile"
+  },
+  {
+    "kind": "formula",
+    "old": "mongocli",
+    "disposition": "excluded by user Brewfile edit",
+    "reason": "Synchronize provisioning and weekly maintenance with reviewed Brewfile"
+  },
+  {
+    "kind": "formula",
+    "old": "mongosh",
+    "disposition": "excluded by user Brewfile edit",
+    "reason": "Synchronize provisioning and weekly maintenance with reviewed Brewfile"
+  },
+  {
+    "kind": "formula",
+    "old": "ansible",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "ast-grep",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "automake",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "bat",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "bison",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "cloudflared",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "coreutils",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "cups",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "e2fsprogs",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "exiftool",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "eza",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "fd",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "flyctl",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "gcc",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "gdbm",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "ghcup",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "git",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "gnu-sed",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "go",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "grep",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "mysql",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "netperf",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "openvpn",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "pkgconf",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "postgresql@17",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "readline",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "ripgrep",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "telnet",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "tpm",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "transmission-cli",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "wakeonlan",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "wget",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "formula",
+    "old": "zoxide",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "User requested removal of added CLI tools without a direct configuration/bootstrap requirement"
+  },
+  {
+    "kind": "cask",
+    "old": "dotnet-sdk@8",
+    "disposition": "optional; excluded from minimal setup",
+    "reason": "Project SDK rather than a bootstrap/configuration dependency; follows user CLI minimization request"
+  }
+]

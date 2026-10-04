@@ -1,0 +1,6 @@
+catppuccin-icons
+html
+jetbrains-new-ui-icons
+macos-classic
+rainbow-csv
+xml

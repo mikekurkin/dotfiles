@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+# stp2skp-bom - bill of materials for a .skp: every component and how many.
+# Nested components multiply, groups are traversed but not counted.
+set -euo pipefail
+
+SHARE="$HOME/.local/share/stp2skp"
+SU_VER="2025"
+OUT=""
+
+usage() {
+  cat <<'USAGE'
+usage: stp2skp-bom [options] <model.skp>
+
+  -o, --out FILE      CSV output (default: alongside the model, .dc.json)
+  -s, --sketchup VER  SketchUp version, default 2025
+USAGE
+}
+
+MODEL=""
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -o|--out)      OUT="$2"; shift 2 ;;
+    -s|--sketchup) SU_VER="$2"; shift 2 ;;
+    -h|--help)     usage; exit 0 ;;
+    *)             MODEL="$1"; shift ;;
+  esac
+done
+[[ -f "${MODEL:-}" ]] || { usage; exit 2; }
+MODEL="$(cd "$(dirname "$MODEL")" && pwd)/$(basename "$MODEL")"
+OUT="${OUT:-${MODEL%.skp}.dc.json}"
+
+rm -f "$SHARE/job.json" "$SHARE/job.done" "$SHARE/job.log"
+python3 -c "
+import json, sys
+json.dump({'mode': 'describe', 'out': sys.argv[1]}, open(sys.argv[2], 'w'))
+" "$OUT" "$SHARE/job.json"
+
+PLUGINS="$HOME/Library/Application Support/SketchUp $SU_VER/SketchUp/Plugins"
+cp "$SHARE/stp2skp_batch.rb" "$PLUGINS/stp2skp_batch.rb"
+SU_APP="/Applications/SketchUp $SU_VER/SketchUp.app"
+if pgrep -f "$SU_APP/Contents/MacOS/SketchUp" >/dev/null; then
+  echo "SketchUp is already running - quit it first" >&2; exit 1
+fi
+# Open the model itself: the plugin reads whatever model is active. Nothing is
+# modified and the model is never saved.
+open -a "$SU_APP" "$MODEL"
+echo -n "reading $(basename "$MODEL")"
+for _ in $(seq 1 900); do
+  [[ -f "$SHARE/job.done" ]] && break
+  sleep 1; echo -n "."
+done
+echo
+cat "$SHARE/job.log" 2>/dev/null
+osascript -e "tell application \"SketchUp\" to quit" >/dev/null 2>&1 || true
+for _ in $(seq 1 10); do pgrep -f "$SU_APP/Contents/MacOS/SketchUp" >/dev/null || break; sleep 1; done
+pgrep -f "$SU_APP/Contents/MacOS/SketchUp" >/dev/null && pkill -9 -f "$SU_APP/Contents/MacOS/SketchUp" || true
+[[ -f "$OUT" ]] && { echo; echo "wrote $OUT"; head -40 "$OUT"; }

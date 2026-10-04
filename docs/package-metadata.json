@@ -1,0 +1,171 @@
+{
+  "captured": "2026-10-04",
+  "sources": [
+    "https://formulae.brew.sh/api/formula.json",
+    "https://formulae.brew.sh/api/cask.json",
+    "https://github.com/nikitabobko/homebrew-tap/blob/main/Casks/aerospace.rb"
+  ],
+  "formulae": {
+    "ack": {
+      "stable": "3.10.0",
+      "head": "HEAD",
+      "bottle": true
+    },
+    "chezmoi": {
+      "stable": "2.73.0",
+      "head": "HEAD",
+      "bottle": true
+    },
+    "docker-compose": {
+      "stable": "5.6.0",
+      "head": "HEAD",
+      "bottle": true
+    },
+    "ffmpeg": {
+      "stable": "9.0.2",
+      "head": "HEAD",
+      "bottle": true
+    },
+    "fzf": {
+      "stable": "0.74.4",
+      "head": "HEAD",
+      "bottle": true
+    },
+    "git-delta": {
+      "stable": "0.19.2",
+      "head": "HEAD",
+      "bottle": true
+    },
+    "git-flow-avh": {
+      "stable": "1.12.3",
+      "head": "HEAD",
+      "bottle": false
+    },
+    "git-lfs": {
+      "stable": "3.8.0",
+      "head": null,
+      "bottle": true
+    },
+    "gpac": {
+      "stable": "26.07.0",
+      "head": "HEAD",
+      "bottle": true
+    },
+    "mas": {
+      "stable": "7.0.0",
+      "head": "HEAD",
+      "bottle": true
+    },
+    "mise": {
+      "stable": "2026.10.1",
+      "head": "HEAD",
+      "bottle": true
+    },
+    "most": {
+      "stable": "5.2.0",
+      "head": "HEAD",
+      "bottle": true
+    },
+    "openconnect": {
+      "stable": "9.21",
+      "head": "HEAD",
+      "bottle": true
+    },
+    "pv": {
+      "stable": "1.12.0",
+      "head": null,
+      "bottle": true
+    },
+    "python@3.14": {
+      "stable": "3.14.8",
+      "head": null,
+      "bottle": true
+    },
+    "tlrc": {
+      "stable": "1.13.1",
+      "head": "HEAD",
+      "bottle": true
+    },
+    "tmux": {
+      "stable": "3.7c",
+      "head": "HEAD",
+      "bottle": true
+    },
+    "tree": {
+      "stable": "2.3.2",
+      "head": null,
+      "bottle": true
+    },
+    "uv": {
+      "stable": "0.12.23",
+      "head": "HEAD",
+      "bottle": true
+    },
+    "vim": {
+      "stable": "9.2.1150",
+      "head": "HEAD",
+      "bottle": true
+    },
+    "yt-dlp": {
+      "stable": "2026.8.19",
+      "head": "HEAD",
+      "bottle": true
+    }
+  },
+  "casks": {
+    "aerospace": "0.21.3-Beta",
+    "altserver": "1.8.1",
+    "anydesk": "9.8.0",
+    "betterdisplay": "5.0.6",
+    "boop": "1.4.0",
+    "claude-code": "2.1.285",
+    "coconutbattery": "4.4.0,265",
+    "codex": "0.160.0",
+    "coteditor": "7.1.1",
+    "daisydisk": "4.34.2",
+    "dash": "8.1.1",
+    "firefox": "157.0",
+    "font-iosevka": "34.9.0",
+    "font-iosevka-aile": "34.9.0",
+    "font-iosevka-etoile": "34.9.0",
+    "font-iosevka-nerd-font": "3.5.1",
+    "font-iosevka-slab": "34.9.0",
+    "font-iosevka-ss07": "34.9.0",
+    "font-iosevka-term-nerd-font": "3.5.1",
+    "fork": "2.70.2",
+    "gemini": "2.10.1,406,1781745541",
+    "handbrake-app": "1.11.2",
+    "happ": "4.3.0",
+    "iina": "1.5.0",
+    "ilya-birman-typography-layout": "3.9",
+    "insta360-studio": "6.0.6,release_insta360,RC_build99,_20260929_153449_signed_1790668492358,f8aaff945c6c43b5908a352329d4aa43",
+    "ios-app-signer": "1.14",
+    "iterm2": "3.7.3",
+    "karabiner-elements": "16.3.0",
+    "keka": "1.6.8",
+    "latest": "0.11",
+    "localsend": "1.18.2",
+    "logi-options+": "2.8.981479",
+    "maccy": "2.7.1",
+    "mediainfo": "26.05",
+    "monitorcontrol": "4.4.0",
+    "mounty": "2.4",
+    "onyx": "5.1.0",
+    "orbstack": "2.2.3,20963",
+    "powerphotos": "3.4.8",
+    "qflipper": "1.3.3",
+    "requestly": "26.6.29",
+    "sf-symbols": "27.0,140",
+    "sol": "2.1.362",
+    "sourcetree": "4.2.19,317",
+    "superduper": "4.0.9",
+    "tailscale-app": "1.102.4",
+    "telegram": "12.10,282985",
+    "topnotch": "1.3.2",
+    "transmission": "4.1.3",
+    "visual-studio-code": "1.140.0",
+    "vlc": "3.0.24",
+    "zen": "1.23b",
+    "zoom": "7.2.2.88465"
+  }
+}

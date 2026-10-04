@@ -1,0 +1,2 @@
+graphifyy==0.8.26
+ipython==9.6.0
